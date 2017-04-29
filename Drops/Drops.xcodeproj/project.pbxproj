@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2801F8E01EB4E528004B40B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8DF1EB4E528004B40B4 /* LaunchScreen.storyboard */; };
 		289911721EABFC7A0098B4E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911711EABFC7A0098B4E2 /* main.m */; };
 		289911751EABFC7A0098B4E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911741EABFC7A0098B4E2 /* AppDelegate.m */; };
 		2899117D1EABFC7A0098B4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2899117C1EABFC7A0098B4E2 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2801F8DF1EB4E528004B40B4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2899116D1EABFC7A0098B4E2 /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289911711EABFC7A0098B4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		289911731EABFC7A0098B4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				289911741EABFC7A0098B4E2 /* AppDelegate.m */,
 				2899117C1EABFC7A0098B4E2 /* Assets.xcassets */,
 				289911811EABFC7A0098B4E2 /* Info.plist */,
+				2801F8DF1EB4E528004B40B4 /* LaunchScreen.storyboard */,
 				28F9C8231EB002A800EEF203 /* Utility */,
 				28F9C8331EB040D200EEF203 /* Networking */,
 				289911AE1EABFFC20098B4E2 /* ViewControllers */,
@@ -357,6 +360,7 @@
 				289911AB1EABFFBA0098B4E2 /* Lato-SemiboldItalic.ttf in Resources */,
 				2899119D1EABFFBA0098B4E2 /* Lato-BlackItalic.ttf in Resources */,
 				289911A31EABFFBA0098B4E2 /* Lato-HeavyItalic.ttf in Resources */,
+				2801F8E01EB4E528004B40B4 /* LaunchScreen.storyboard in Resources */,
 				28F9C83C1EB2BF8900EEF203 /* Localizable.strings in Resources */,
 				2899117D1EABFC7A0098B4E2 /* Assets.xcassets in Resources */,
 				289911A11EABFFBA0098B4E2 /* Lato-HairlineItalic.ttf in Resources */,

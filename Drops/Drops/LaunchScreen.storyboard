@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="view" destination="1wY-h9-o2k" id="hvf-lK-wE9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="1wY-h9-o2k">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-BG-1" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-Mo-QxE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1334"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-logo" translatesAutoresizingMaskIntoConstraints="NO" id="lwV-ee-bdR">
+                            <rect key="frame" x="67" y="200" width="240" height="200"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="mMG-Rl-Xs3"/>
+                                <constraint firstAttribute="width" constant="240" id="nI3-ub-Yym"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="lwV-ee-bdR" firstAttribute="centerY" secondItem="1wY-h9-o2k" secondAttribute="centerY" id="74I-Oe-fro"/>
+                        <constraint firstAttribute="bottom" secondItem="d7P-Mo-QxE" secondAttribute="bottom" constant="-734" id="LPE-6y-g5o"/>
+                        <constraint firstItem="d7P-Mo-QxE" firstAttribute="top" secondItem="1wY-h9-o2k" secondAttribute="top" id="PkU-ik-4xO"/>
+                        <constraint firstItem="lwV-ee-bdR" firstAttribute="centerX" secondItem="1wY-h9-o2k" secondAttribute="centerX" id="XZY-zg-A88"/>
+                        <constraint firstItem="d7P-Mo-QxE" firstAttribute="leading" secondItem="1wY-h9-o2k" secondAttribute="leading" id="vpr-jq-bk8"/>
+                        <constraint firstAttribute="trailing" secondItem="d7P-Mo-QxE" secondAttribute="trailing" id="wqN-VH-D9v"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="app-logo" width="479" height="479"/>
+        <image name="splash-BG-1" width="781" height="1390"/>
+    </resources>
+</document>
