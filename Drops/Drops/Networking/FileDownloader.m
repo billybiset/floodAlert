@@ -103,7 +103,7 @@
             
             NSURLRequest *request = [NSURLRequest requestWithURL:URL];
             
-            NSLog(@"Downloading %@ was in disk", fileURL.lastPathComponent);
+            NSLog(@"Downloading %@", fileURL.lastPathComponent);
             
             NSURLSessionDownloadTask *downloadTask = [self.sessionManager
                                                       downloadTaskWithRequest:request

@@ -1,5 +1,6 @@
 #import "MainNavigationViewController.h"
 #import "MapViewController.h"
+#import "ClimateViewController.h"
 
 #import "UIColor+Drops.h"
 
@@ -35,12 +36,16 @@
         MapViewController *mapVc = [[MapViewController alloc] init];
         mapVc.navigationDelegate = self;
         
+        ClimateViewController *climateVc = [[ClimateViewController alloc] init];
+        climateVc.navigationDelegate = self;
+        
         UIViewController *resourcesVc = [[UIViewController alloc] init];
         
         UIViewController *settingsVc = [[UIViewController alloc] init];
         
         self.viewControllers = @[
                                     mapVc,
+                                    climateVc,
                                     resourcesVc,
                                     settingsVc
                                  ];
@@ -69,9 +74,12 @@
 - (void)localizeOutlets
 {
     UITabBarItem *mapItem = self.tabBar.items[0];
-    UITabBarItem *resourcesItem = self.tabBar.items[1];
-    UITabBarItem *settingsItem = self.tabBar.items[2];
+    UITabBarItem *climateItem = self.tabBar.items[1];
+    UITabBarItem *resourcesItem = self.tabBar.items[2];
+    UITabBarItem *settingsItem = self.tabBar.items[3];
+    
     [mapItem setTitle:NSLocalizedString(@"MAP", )];
+    [climateItem setTitle:NSLocalizedString(@"CLIMATE", )];
     [resourcesItem setTitle:NSLocalizedString(@"RESOURCES", )];
     [settingsItem setTitle:NSLocalizedString(@"SETTINGS", )];
 }
@@ -129,8 +137,8 @@
 
 - (void)adjustNavigationBar
 {
-    [self.navigationController setNavigationBarHidden:self.currentIndex == 0];
-    self.containerViewTop.constant = self.currentIndex == 0 ? 0 : 42;
+    [self.navigationController setNavigationBarHidden:self.currentIndex <= 1];
+    self.containerViewTop.constant = self.currentIndex <= 1 ? 0 : 42;
     [self.view layoutIfNeeded];
 }
 

@@ -148,7 +148,7 @@
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = view.bounds;
-    gradient.colors = @[(id)[UIColor colorWithHex:@"3425a3"].CGColor, (id)[UIColor colorWithHex:@"17002c"].CGColor];
+    gradient.colors = @[(id)[UIColor colorWithHex:@"81d2c7"].CGColor, (id)[UIColor colorWithHex:@"4494ce"].CGColor];
     gradient.startPoint = CGPointMake(0, 0);
     gradient.endPoint = CGPointMake(1, 1);
     
@@ -167,7 +167,7 @@
     if ( gradient.animationKeys.count == 0 )
     {
         NSArray *oldColors = gradient.colors;
-        NSArray *newColors = @[(id)[UIColor secondaryColor].CGColor, (id)[UIColor principalColor].CGColor];
+        NSArray *newColors = @[(id)[UIColor colorWithHex:@"4a7f90"].CGColor, (id)[UIColor colorWithHex:@"003154"].CGColor];
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath: @"colors"];
         

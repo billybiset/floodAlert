@@ -1,8 +1,6 @@
 #import <Foundation/Foundation.h>
 
-typedef void (^NoArgumentCallback)(void);
-typedef void (^ObjectCallback)(id object);
-typedef void (^ObjectErrorCallback)(id object, NSError* error);
+#import "Callbacks.h"
 
 typedef enum
 {

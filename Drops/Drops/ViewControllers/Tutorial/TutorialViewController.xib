@@ -23,11 +23,7 @@
                 <outlet property="screen1BuiltByConstraint" destination="4SA-9U-Pj8" id="M2Z-w3-j4c"/>
                 <outlet property="screen1BuiltByLabel" destination="CsG-02-Alx" id="g2k-pm-en7"/>
                 <outlet property="screen1TeamImage" destination="WI1-od-q7m" id="K9R-jo-gor"/>
-                <outlet property="screen2ImageLeft" destination="T9d-fO-sny" id="elU-iQ-9Z7"/>
-                <outlet property="screen2ImageRight" destination="KrU-Xq-iRa" id="v3L-uz-APO"/>
                 <outlet property="screen2TextView" destination="qSS-AL-pUZ" id="vsr-Nn-bwg"/>
-                <outlet property="screen3ImageTop" destination="Cox-yl-LI8" id="EIy-uu-SJw"/>
-                <outlet property="screen4ImageBottom" destination="X6L-Ea-xA1" id="nmg-Pr-v60"/>
                 <outlet property="screen4TextView" destination="bUK-23-eCF" id="GRb-hX-hmo"/>
                 <outlet property="scrollView" destination="2q3-t8-NID" id="Mjw-a7-QhH"/>
                 <outlet property="skipButton" destination="IER-pr-Vc1" id="Azl-Vp-2en"/>
@@ -52,6 +48,12 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwU-XB-lEd" userLabel="First">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="imagen-tutorial-2" translatesAutoresizingMaskIntoConstraints="NO" id="LP6-C8-5h7">
+                                    <rect key="frame" x="-111" y="0.0" width="1850" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bs-ae-Hh5" userLabel="Second">
@@ -97,7 +99,7 @@
                     </constraints>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Zs-aq-Xx9">
-                    <rect key="frame" x="137.5" y="630" width="100" height="37"/>
+                    <rect key="frame" x="137.5" y="0.0" width="100" height="37"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="uXY-N3-9AF"/>
                     </constraints>
@@ -106,7 +108,7 @@
                     </connections>
                 </pageControl>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHd-pY-etp">
-                    <rect key="frame" x="292" y="625" width="75" height="34"/>
+                    <rect key="frame" x="292" y="8" width="75" height="34"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="6Ya-SX-01y"/>
@@ -134,12 +136,12 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="2Zs-aq-Xx9" firstAttribute="top" secondItem="2q3-t8-NID" secondAttribute="top" id="3v9-UA-LmC"/>
                 <constraint firstItem="2q3-t8-NID" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4lD-HU-AYv"/>
                 <constraint firstAttribute="bottom" secondItem="2q3-t8-NID" secondAttribute="bottom" id="8fd-id-SjA"/>
                 <constraint firstItem="2Zs-aq-Xx9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ALh-Bz-Ze0"/>
-                <constraint firstAttribute="bottom" secondItem="2Zs-aq-Xx9" secondAttribute="bottom" id="Pd2-DQ-lmI"/>
                 <constraint firstAttribute="trailing" secondItem="IER-pr-Vc1" secondAttribute="trailing" constant="8" id="RR2-gS-FOX"/>
-                <constraint firstAttribute="bottom" secondItem="rHd-pY-etp" secondAttribute="bottom" constant="8" id="Zq3-bP-MXG"/>
+                <constraint firstItem="rHd-pY-etp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="VBC-8e-zAG"/>
                 <constraint firstAttribute="trailing" secondItem="2q3-t8-NID" secondAttribute="trailing" id="aFB-A0-BMg"/>
                 <constraint firstItem="2q3-t8-NID" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bL3-Zv-u6V"/>
                 <constraint firstItem="IER-pr-Vc1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="cMn-xu-Sab"/>
@@ -147,13 +149,14 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
         <view contentMode="scaleToFill" id="MsD-ID-eAw">
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LUj-bb-LGb">
-                    <rect key="frame" x="68" y="268" width="240" height="64"/>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-logo" translatesAutoresizingMaskIntoConstraints="NO" id="LUj-bb-LGb">
+                    <rect key="frame" x="68" y="100" width="240" height="64"/>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="jC7-wM-yIX"/>
@@ -167,7 +170,7 @@
                         <constraint firstAttribute="height" constant="70" id="p6u-Qs-srh"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsG-02-Alx">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsG-02-Alx">
                     <rect key="frame" x="117" y="374" width="142" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="1bI-Tv-6g9"/>
@@ -177,15 +180,30 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-4g-uPl">
+                    <rect key="frame" x="11" y="47" width="352" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="bjQ-wj-ci8"/>
+                    </constraints>
+                    <string key="text">Welcome to Flood Alert! 
+
+This app is part of NASA's Space App Challenge.</string>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LUj-bb-LGb" firstAttribute="centerX" secondItem="MsD-ID-eAw" secondAttribute="centerX" id="3No-Kq-EvP"/>
+                <constraint firstAttribute="trailing" secondItem="mNa-4g-uPl" secondAttribute="trailing" constant="12" id="3cb-kM-fIm"/>
                 <constraint firstItem="WI1-od-q7m" firstAttribute="top" secondItem="CsG-02-Alx" secondAttribute="bottom" constant="75" id="4SA-9U-Pj8"/>
+                <constraint firstItem="mNa-4g-uPl" firstAttribute="top" secondItem="MsD-ID-eAw" secondAttribute="top" constant="47" id="O6g-Jf-rh7"/>
                 <constraint firstItem="WI1-od-q7m" firstAttribute="centerX" secondItem="MsD-ID-eAw" secondAttribute="centerX" id="awp-rK-dBf"/>
                 <constraint firstAttribute="bottom" secondItem="WI1-od-q7m" secondAttribute="bottom" constant="60" id="bn2-ud-6yi"/>
+                <constraint firstItem="mNa-4g-uPl" firstAttribute="leading" secondItem="MsD-ID-eAw" secondAttribute="leading" constant="11" id="qZN-Dc-8pk"/>
+                <constraint firstItem="LUj-bb-LGb" firstAttribute="top" secondItem="MsD-ID-eAw" secondAttribute="top" constant="100" id="tdF-JZ-lRq"/>
                 <constraint firstItem="CsG-02-Alx" firstAttribute="centerX" secondItem="WI1-od-q7m" secondAttribute="centerX" id="tiq-Me-46S"/>
-                <constraint firstItem="LUj-bb-LGb" firstAttribute="centerY" secondItem="MsD-ID-eAw" secondAttribute="centerY" id="xpj-3f-QRI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -196,11 +214,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resources-screen" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-Ol-VsC">
-                    <rect key="frame" x="10" y="48" width="765" height="530"/>
-                </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
-                    <rect key="frame" x="10" y="408" width="230" height="150"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
+                    <rect key="frame" x="16" y="48" width="230" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="xaJ-Me-0I6"/>
                     </constraints>
@@ -214,13 +229,9 @@ This app is part of NASA's Space App Challenge.</string>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="5x3-Ol-VsC" secondAttribute="bottom" constant="20" id="GwR-Xh-iYD"/>
-                <constraint firstAttribute="trailing" secondItem="5x3-Ol-VsC" secondAttribute="trailing" constant="-400" id="KrU-Xq-iRa"/>
                 <constraint firstItem="qSS-AL-pUZ" firstAttribute="leading" secondItem="fSp-g6-icZ" secondAttribute="leading" constant="10" id="Lgv-hP-6l2"/>
-                <constraint firstItem="5x3-Ol-VsC" firstAttribute="leading" secondItem="fSp-g6-icZ" secondAttribute="leading" constant="10" id="T9d-fO-sny"/>
                 <constraint firstItem="qSS-AL-pUZ" firstAttribute="width" secondItem="fSp-g6-icZ" secondAttribute="width" multiplier="0.4" constant="80" id="ZRD-J1-SBi"/>
-                <constraint firstAttribute="bottom" secondItem="qSS-AL-pUZ" secondAttribute="bottom" constant="40" id="nhk-6i-Bg6"/>
-                <constraint firstItem="5x3-Ol-VsC" firstAttribute="top" secondItem="fSp-g6-icZ" secondAttribute="top" constant="48" id="oAv-HY-gAz"/>
+                <constraint firstItem="qSS-AL-pUZ" firstAttribute="top" secondItem="fSp-g6-icZ" secondAttribute="top" constant="48" id="gXB-fT-xYh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -231,14 +242,10 @@ This app is part of NASA's Space App Challenge.</string>
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="activities-screen" translatesAutoresizingMaskIntoConstraints="NO" id="MlN-kh-xCG">
-                    <rect key="frame" x="8" y="48" width="227" height="530"/>
-                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="In here, you’ll be able to assess flood risk in the world." textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
-                    <rect key="frame" x="231" y="180" width="136" height="365"/>
+                    <rect key="frame" x="20" y="33" width="334" height="142"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="136" id="A2b-Xi-wRi"/>
-                        <constraint firstAttribute="width" secondItem="OIb-1h-zTy" secondAttribute="height" multiplier="17:55" constant="23.181818181818187" id="qQy-zQ-9ie"/>
+                        <constraint firstAttribute="height" constant="142" id="5fJ-7h-joX"/>
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -247,13 +254,9 @@ This app is part of NASA's Space App Challenge.</string>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="MlN-kh-xCG" firstAttribute="leading" secondItem="n6n-kC-raf" secondAttribute="leading" constant="8" id="5zZ-tV-zmQ"/>
-                <constraint firstItem="MlN-kh-xCG" firstAttribute="top" secondItem="n6n-kC-raf" secondAttribute="top" constant="48" id="Cox-yl-LI8"/>
-                <constraint firstItem="OIb-1h-zTy" firstAttribute="bottom" secondItem="MlN-kh-xCG" secondAttribute="bottom" constant="-33" id="H7j-0U-bka"/>
-                <constraint firstAttribute="trailing" secondItem="OIb-1h-zTy" secondAttribute="trailing" constant="8" id="QTY-kw-CgG"/>
-                <constraint firstItem="OIb-1h-zTy" firstAttribute="leading" secondItem="MlN-kh-xCG" secondAttribute="trailing" constant="-4" id="b9Z-9z-Jfp"/>
-                <constraint firstAttribute="bottom" secondItem="MlN-kh-xCG" secondAttribute="bottom" constant="22" id="eJq-dV-mbk"/>
-                <constraint firstAttribute="trailing" secondItem="MlN-kh-xCG" secondAttribute="trailing" constant="140" id="h5P-nE-sPs"/>
+                <constraint firstItem="OIb-1h-zTy" firstAttribute="top" secondItem="n6n-kC-raf" secondAttribute="top" constant="33" id="Bzk-uO-A4V"/>
+                <constraint firstItem="OIb-1h-zTy" firstAttribute="leading" secondItem="n6n-kC-raf" secondAttribute="leading" constant="20" id="SGv-FR-Kcq"/>
+                <constraint firstAttribute="trailing" secondItem="OIb-1h-zTy" secondAttribute="trailing" constant="21" id="fcF-qu-dMq"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -264,11 +267,8 @@ This app is part of NASA's Space App Challenge.</string>
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-screen" translatesAutoresizingMaskIntoConstraints="NO" id="hGr-JV-5Xm">
-                    <rect key="frame" x="8" y="8" width="359" height="530"/>
-                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" editable="NO" text="Team Flood Alert from Rio Cuarto." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
-                    <rect key="frame" x="8" y="415" width="359" height="140"/>
+                    <rect key="frame" x="8" y="48" width="359" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="MSJ-a6-Gqc"/>
                     </constraints>
@@ -279,16 +279,12 @@ This app is part of NASA's Space App Challenge.</string>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="bUK-23-eCF" firstAttribute="top" secondItem="QPt-V5-cu5" secondAttribute="top" constant="48" id="DAv-xT-480"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="8" id="F9F-f0-4Si"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="61" id="Jxc-2g-CWO"/>
-                <constraint firstAttribute="trailing" secondItem="hGr-JV-5Xm" secondAttribute="trailing" constant="8" id="Oiu-D1-jA1"/>
-                <constraint firstItem="hGr-JV-5Xm" firstAttribute="top" secondItem="QPt-V5-cu5" secondAttribute="top" constant="8" id="RH5-ek-lMO"/>
-                <constraint firstAttribute="bottom" secondItem="hGr-JV-5Xm" secondAttribute="bottom" constant="62" id="X6L-Ea-xA1"/>
                 <constraint firstAttribute="trailing" secondItem="bUK-23-eCF" secondAttribute="trailing" constant="68" id="ang-Ji-f8U"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="centerX" secondItem="QPt-V5-cu5" secondAttribute="centerX" id="fHS-lq-WcO"/>
-                <constraint firstItem="hGr-JV-5Xm" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="8" id="jKb-WX-Dju"/>
                 <constraint firstAttribute="trailing" secondItem="bUK-23-eCF" secondAttribute="trailing" constant="8" id="k2C-A3-h4H"/>
-                <constraint firstAttribute="bottom" secondItem="bUK-23-eCF" secondAttribute="bottom" constant="45" id="mgU-TP-4sT"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -303,10 +299,8 @@ This app is part of NASA's Space App Challenge.</string>
         </view>
     </objects>
     <resources>
-        <image name="activities-screen" width="206" height="530"/>
-        <image name="logo" width="320" height="410"/>
-        <image name="profile-screen" width="256" height="530"/>
-        <image name="resources-screen" width="834" height="530"/>
+        <image name="app-logo" width="479" height="479"/>
+        <image name="imagen-tutorial-2" width="3907" height="1391"/>
         <image name="team logo" width="16" height="16"/>
     </resources>
 </document>

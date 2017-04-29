@@ -93,7 +93,8 @@ typedef NS_ENUM(NSInteger, MDOnboardingStatus)
 
 - (BOOL)hasSeenTutorial
 {
-    return [self onboardingProgressForVariable:kHasSeenTutorial];
+    return NO;
+    //[self onboardingProgressForVariable:kHasSeenTutorial];
 }
 
 - (void)clearPastOnboardingData

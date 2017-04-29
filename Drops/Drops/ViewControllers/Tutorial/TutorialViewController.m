@@ -111,7 +111,7 @@
     
     [self.view layoutSubviews];
     
-    [self startFirstScreenAnimation];
+    //[self startFirstScreenAnimation];
 }
 
 - (void)startFirstScreenAnimation

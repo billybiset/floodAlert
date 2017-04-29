@@ -2,16 +2,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MBProgressHUD.h>
 
-#import "MapViewController.h"
-#import "FileDownloader.h"
+#import "ClimateViewController.h"
 
 #import "UIColor+Drops.h"
 #import "UIHelper.h"
 
-#import "KMLParser.h"
 #import "ClimateDownloader.h"
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface ClimateViewController () <MKMapViewDelegate>
 
 @property (nonatomic) NSOperationQueue *processingQueue;
 
@@ -41,7 +39,6 @@
 
 @property (nonatomic) NSDate *currentDate;
 
-@property (nonatomic) KMLParser *kmlParser;
 @property (nonatomic) CGFloat squareHeight;
 @property (nonatomic) NSMutableSet *loadedFiles;
 
@@ -50,29 +47,28 @@
 
 @end
 
-@implementation MapViewController
+@implementation ClimateViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.processingQueue = [NSOperationQueue new];
-    self.filenamesToOverlays = [NSMutableDictionary new];
-    self.filenamesToAnnotations = [NSMutableDictionary new];
-    
-    self.loadedFiles = [NSMutableSet new];
-    
-    self.map.delegate = self;
-    
-    self.squareHeight = self.menuViewHeight.constant;
-    [UIHelper applyCornerRadius:self.squareHeight / 2.0 toView:self.menuView];
-    
-    [self changeDate:nil];
     [self localizeOutlets];
+    /*
+    [[ClimateDownloader instance] downloadLatitude:-34.1167
+                                         longitude:-63.4
+                                          callback:^(NSDictionary *information, NSError *error)
+    {
+            
+    }];
+     */
 }
+
 
 - (void)localizeOutlets
 {
+}
+/*
     [self.shareButton setTitle:NSLocalizedString(@"SHARE",) forState:UIControlStateNormal];
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"STANDARD", ) forSegmentAtIndex:0];
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"SATELLITE", ) forSegmentAtIndex:1];
@@ -85,6 +81,7 @@
     self.waterLabel.text = NSLocalizedString(@"WATER",);
     self.shareLabel.text = NSLocalizedString(@"SHARE",);
 }
+
 
 - (NSDateFormatter *)dateFormatter
 {
@@ -185,6 +182,8 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+    return;
+    
     CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
     CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
 
@@ -421,5 +420,5 @@
         [self toggleMenu:nil];
     }
 }
-
+*/
 @end
