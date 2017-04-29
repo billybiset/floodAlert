@@ -11,8 +11,8 @@
 "STANDARD" = "Estándar";
 "SATELLITE" = "Satélite";
 "HYBRID" = "Híbrido";
-"SURFACE WATER" = "Agua de Superficie";
-"FLOOD WATER" = "Agua de Inundación";
+"SURFACE WATER" = "Superficie";
+"FLOOD WATER" = "Inundación";
 "MAP" = "Mapa";
 "RESOURCES" = "Recursos";
 "SETTINGS" = "Configuración";
