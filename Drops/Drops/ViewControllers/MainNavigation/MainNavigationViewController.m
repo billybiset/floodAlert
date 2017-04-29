@@ -1,6 +1,7 @@
 #import "MainNavigationViewController.h"
 #import "MapViewController.h"
 #import "ClimateViewController.h"
+#import "RisksViewController.h"
 
 #import "UIColor+Drops.h"
 
@@ -39,15 +40,16 @@
         ClimateViewController *climateVc = [[ClimateViewController alloc] init];
         climateVc.navigationDelegate = self;
         
-        UIViewController *resourcesVc = [[UIViewController alloc] init];
+        RisksViewController *risksVc = [[RisksViewController alloc] init];
+        risksVc.navigationDelegate = self;
         
-        UIViewController *settingsVc = [[UIViewController alloc] init];
+        UIViewController *resourcesVc = [[UIViewController alloc] init];
         
         self.viewControllers = @[
                                     mapVc,
                                     climateVc,
-                                    resourcesVc,
-                                    settingsVc
+                                    risksVc,
+                                    resourcesVc
                                  ];
     }
     
@@ -75,13 +77,14 @@
 {
     UITabBarItem *mapItem = self.tabBar.items[0];
     UITabBarItem *climateItem = self.tabBar.items[1];
-    UITabBarItem *resourcesItem = self.tabBar.items[2];
-    UITabBarItem *settingsItem = self.tabBar.items[3];
+    UITabBarItem *risksItem = self.tabBar.items[2];
+    UITabBarItem *resourcesItem = self.tabBar.items[3];
+    
     
     [mapItem setTitle:NSLocalizedString(@"MAP", )];
     [climateItem setTitle:NSLocalizedString(@"CLIMATE", )];
+    [risksItem setTitle:NSLocalizedString(@"RISK", )];
     [resourcesItem setTitle:NSLocalizedString(@"RESOURCES", )];
-    [settingsItem setTitle:NSLocalizedString(@"SETTINGS", )];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -137,8 +140,8 @@
 
 - (void)adjustNavigationBar
 {
-    [self.navigationController setNavigationBarHidden:self.currentIndex <= 1];
-    self.containerViewTop.constant = self.currentIndex <= 1 ? 0 : 42;
+    [self.navigationController setNavigationBarHidden:self.currentIndex <= 2];
+    self.containerViewTop.constant = self.currentIndex <= 2 ? 0 : 42;
     [self.view layoutIfNeeded];
 }
 

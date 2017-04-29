@@ -20,4 +20,5 @@
 "LOCATION" = "Location";
 "WATER" = "Water";
 "SHARE" = "Share";
-"CLIMATE" = "Climate";
+"CLIMATE" = "Weather";
+"RISK" = "Risk";

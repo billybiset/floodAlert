@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -181,15 +180,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-4g-uPl">
-                    <rect key="frame" x="11" y="47" width="352" height="150"/>
+                    <rect key="frame" x="11" y="56" width="352" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="bjQ-wj-ci8"/>
                     </constraints>
                     <string key="text">Welcome to Flood Alert! 
 
-This app is part of NASA's Space App Challenge.</string>
+This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NASA's Space App Challenge 2017.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
@@ -198,7 +197,7 @@ This app is part of NASA's Space App Challenge.</string>
                 <constraint firstItem="LUj-bb-LGb" firstAttribute="centerX" secondItem="MsD-ID-eAw" secondAttribute="centerX" id="3No-Kq-EvP"/>
                 <constraint firstAttribute="trailing" secondItem="mNa-4g-uPl" secondAttribute="trailing" constant="12" id="3cb-kM-fIm"/>
                 <constraint firstItem="WI1-od-q7m" firstAttribute="top" secondItem="CsG-02-Alx" secondAttribute="bottom" constant="75" id="4SA-9U-Pj8"/>
-                <constraint firstItem="mNa-4g-uPl" firstAttribute="top" secondItem="MsD-ID-eAw" secondAttribute="top" constant="47" id="O6g-Jf-rh7"/>
+                <constraint firstItem="mNa-4g-uPl" firstAttribute="top" secondItem="MsD-ID-eAw" secondAttribute="top" constant="56" id="O6g-Jf-rh7"/>
                 <constraint firstItem="WI1-od-q7m" firstAttribute="centerX" secondItem="MsD-ID-eAw" secondAttribute="centerX" id="awp-rK-dBf"/>
                 <constraint firstAttribute="bottom" secondItem="WI1-od-q7m" secondAttribute="bottom" constant="60" id="bn2-ud-6yi"/>
                 <constraint firstItem="mNa-4g-uPl" firstAttribute="leading" secondItem="MsD-ID-eAw" secondAttribute="leading" constant="11" id="qZN-Dc-8pk"/>
@@ -214,24 +213,22 @@ This app is part of NASA's Space App Challenge.</string>
             <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
-                    <rect key="frame" x="16" y="48" width="230" height="150"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
+                    <rect key="frame" x="16" y="56" width="351" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="xaJ-Me-0I6"/>
                     </constraints>
-                    <string key="text">Welcome to Flood Alert! 
-
-This app is part of NASA's Space App Challenge.</string>
+                    <string key="text">The team that built this app is multi disciplinary and is composed of Two Agronomical Engineer, Three Programmers and One Graphic Designer.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="qSS-AL-pUZ" firstAttribute="leading" secondItem="fSp-g6-icZ" secondAttribute="leading" constant="10" id="Lgv-hP-6l2"/>
-                <constraint firstItem="qSS-AL-pUZ" firstAttribute="width" secondItem="fSp-g6-icZ" secondAttribute="width" multiplier="0.4" constant="80" id="ZRD-J1-SBi"/>
-                <constraint firstItem="qSS-AL-pUZ" firstAttribute="top" secondItem="fSp-g6-icZ" secondAttribute="top" constant="48" id="gXB-fT-xYh"/>
+                <constraint firstItem="qSS-AL-pUZ" firstAttribute="leading" secondItem="fSp-g6-icZ" secondAttribute="leading" constant="16" id="2SR-GR-cwh"/>
+                <constraint firstAttribute="trailing" secondItem="qSS-AL-pUZ" secondAttribute="trailing" constant="8" id="4aH-F1-57k"/>
+                <constraint firstItem="qSS-AL-pUZ" firstAttribute="top" secondItem="fSp-g6-icZ" secondAttribute="top" constant="56" id="gXB-fT-xYh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -242,13 +239,14 @@ This app is part of NASA's Space App Challenge.</string>
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="In here, you’ll be able to assess flood risk in the world." textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
                     <rect key="frame" x="20" y="33" width="334" height="142"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="142" id="5fJ-7h-joX"/>
                     </constraints>
+                    <string key="text">The goal of the app is to educate users about ongoing floods in the area and calculate a simple risk percentage. You'll find more information within the app itself.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
@@ -267,19 +265,19 @@ This app is part of NASA's Space App Challenge.</string>
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" editable="NO" text="Team Flood Alert from Rio Cuarto." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
-                    <rect key="frame" x="8" y="48" width="359" height="140"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please grant permission to the app so we can map your location while you are using it." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
+                    <rect key="frame" x="8" y="56" width="359" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="MSJ-a6-Gqc"/>
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bUK-23-eCF" firstAttribute="top" secondItem="QPt-V5-cu5" secondAttribute="top" constant="48" id="DAv-xT-480"/>
+                <constraint firstItem="bUK-23-eCF" firstAttribute="top" secondItem="QPt-V5-cu5" secondAttribute="top" constant="56" id="DAv-xT-480"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="8" id="F9F-f0-4Si"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="61" id="Jxc-2g-CWO"/>
                 <constraint firstAttribute="trailing" secondItem="bUK-23-eCF" secondAttribute="trailing" constant="68" id="ang-Ji-f8U"/>

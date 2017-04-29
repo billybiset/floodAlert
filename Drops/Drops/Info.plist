@@ -2,25 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>af9a291119f16efeca2f5283a13047bb10b4c936</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>mPaLRMBvviUzPLkFxQRnhmCgw</string>
-					<key>consumerSecret</key>
-					<string>VA2cYWEfrhhn5GdRMsuy9OkCQP6wpnB9o6PMC8sVpFyzZPOL0C</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
-		</array>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDocumentTypes</key>
@@ -48,6 +29,25 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>af9a291119f16efeca2f5283a13047bb10b4c936</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>consumerKey</key>
+					<string>mPaLRMBvviUzPLkFxQRnhmCgw</string>
+					<key>consumerSecret</key>
+					<string>VA2cYWEfrhhn5GdRMsuy9OkCQP6wpnB9o6PMC8sVpFyzZPOL0C</string>
+				</dict>
+				<key>KitName</key>
+				<string>Twitter</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -55,6 +55,8 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModeTrain</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please share your location to track floods around you.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Lato-Light.ttf</string>

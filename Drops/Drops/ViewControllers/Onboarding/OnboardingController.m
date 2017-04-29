@@ -1,3 +1,5 @@
+#import <CoreLocation/CoreLocation.h>
+
 #import "OnboardingController.h"
 #import "TutorialViewController.h"
 #import "MainNavigationViewController.h"
@@ -17,13 +19,16 @@ typedef NS_ENUM(NSInteger, MDOnboardingStatus)
 
 @interface OnboardingController()
     <TutorialViewControllerDelegate,
-    UINavigationControllerDelegate
+    UINavigationControllerDelegate,
+    CLLocationManagerDelegate
     >
 
 @property (nonatomic) UIWindow *window;
 @property (nonatomic) UINavigationController *navigationController;
 
 @property (nonatomic, assign) BOOL isPushingParticipationController;
+
+@property (nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -139,6 +144,12 @@ typedef NS_ENUM(NSInteger, MDOnboardingStatus)
 
 - (void)exitTutorial
 {
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.delegate = self;
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [_locationManager requestWhenInUseAuthorization];
+    
     [self startOnboarding];
 }
 
@@ -208,6 +219,18 @@ typedef NS_ENUM(NSInteger, MDOnboardingStatus)
          }];
     }
      */
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    [manager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
 }
 
 @end

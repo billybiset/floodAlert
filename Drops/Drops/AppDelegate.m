@@ -1,6 +1,3 @@
-#import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
-
 #import "AppDelegate.h"
 #import "OnboardingController.h"
 
@@ -16,7 +13,6 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    [Fabric with:@[[Twitter class]]];
     [OnboardingController startOnWindow:self.window];
     
     [self.window makeKeyAndVisible];

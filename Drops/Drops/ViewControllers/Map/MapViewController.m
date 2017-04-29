@@ -48,6 +48,8 @@
 @property (nonatomic) NSMutableDictionary *filenamesToOverlays;
 @property (nonatomic) NSMutableDictionary *filenamesToAnnotations;
 
+@property (nonatomic) IBOutlet UIView *zoomView;
+
 @end
 
 @implementation MapViewController
@@ -183,6 +185,11 @@
     return NO;
 }
 
+- (BOOL)visibleIsTooLarge:(MKCoordinateRegion)region
+{
+    return region.span.latitudeDelta > 10.0;
+}
+
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
@@ -191,6 +198,30 @@
     NSString *locationString = [NSString stringWithFormat:@"%f, %f",
                                 latitude,
                                 longitude];
+    
+    if ( [self visibleIsTooLarge:self.map.region] )
+    {
+        [self resetAnnotations];
+        
+        if ( self.zoomView.alpha < 1.0 )
+        {
+            [UIView animateWithDuration:0.15 animations:^
+            {
+                self.zoomView.alpha = 1.0;
+            }];
+        }
+        return;
+    }
+    else
+    {
+        if ( self.zoomView.alpha > 0.0 )
+        {
+            [UIView animateWithDuration:0.15 animations:^
+             {
+                 self.zoomView.alpha = 0.0;
+             }];
+        }
+    }
     
     [self.locationDetailsButton setTitle:locationString forState:UIControlStateNormal];
     

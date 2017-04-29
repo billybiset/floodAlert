@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2801F8E01EB4E528004B40B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8DF1EB4E528004B40B4 /* LaunchScreen.storyboard */; };
-		2801F8E31EB4FE97004B40B4 /* FloodEconomicLossRisk.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8E11EB4FE97004B40B4 /* FloodEconomicLossRisk.kml */; };
-		2801F8E41EB4FE97004B40B4 /* FloodHazard-FreqDist-85-03.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8E21EB4FE97004B40B4 /* FloodHazard-FreqDist-85-03.kml */; };
 		2801F8E71EB505EB004B40B4 /* ClimateDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2801F8E61EB505EB004B40B4 /* ClimateDownloader.m */; };
-		2801F8E91EB50656004B40B4 /* poligono2.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8E81EB50656004B40B4 /* poligono2.kml */; };
-		2801F8EB1EB50791004B40B4 /* doc.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8EA1EB50791004B40B4 /* doc.kml */; };
 		2801F8F11EB50CDB004B40B4 /* ClimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2801F8EF1EB50CDB004B40B4 /* ClimateViewController.m */; };
 		2801F8F21EB50CDB004B40B4 /* ClimateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F01EB50CDB004B40B4 /* ClimateViewController.xib */; };
-		2801F8F41EB50FD6004B40B4 /* pol4.kml in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F31EB50FD6004B40B4 /* pol4.kml */; };
+		2801F8F91EB51CDD004B40B4 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2801F8F71EB51CDD004B40B4 /* RisksViewController.m */; };
+		2801F8FA1EB51CDD004B40B4 /* RisksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */; };
 		289911721EABFC7A0098B4E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911711EABFC7A0098B4E2 /* main.m */; };
 		289911751EABFC7A0098B4E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911741EABFC7A0098B4E2 /* AppDelegate.m */; };
 		2899117D1EABFC7A0098B4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2899117C1EABFC7A0098B4E2 /* Assets.xcassets */; };
@@ -55,17 +52,15 @@
 
 /* Begin PBXFileReference section */
 		2801F8DF1EB4E528004B40B4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2801F8E11EB4FE97004B40B4 /* FloodEconomicLossRisk.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FloodEconomicLossRisk.kml; sourceTree = "<group>"; };
-		2801F8E21EB4FE97004B40B4 /* FloodHazard-FreqDist-85-03.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "FloodHazard-FreqDist-85-03.kml"; sourceTree = "<group>"; };
 		2801F8E51EB505EB004B40B4 /* ClimateDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimateDownloader.h; sourceTree = "<group>"; };
 		2801F8E61EB505EB004B40B4 /* ClimateDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimateDownloader.m; sourceTree = "<group>"; };
-		2801F8E81EB50656004B40B4 /* poligono2.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = poligono2.kml; sourceTree = "<group>"; };
-		2801F8EA1EB50791004B40B4 /* doc.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = doc.kml; sourceTree = "<group>"; };
 		2801F8EC1EB50BB0004B40B4 /* Callbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Callbacks.h; sourceTree = "<group>"; };
 		2801F8EE1EB50CDB004B40B4 /* ClimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimateViewController.h; sourceTree = "<group>"; };
 		2801F8EF1EB50CDB004B40B4 /* ClimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimateViewController.m; sourceTree = "<group>"; };
 		2801F8F01EB50CDB004B40B4 /* ClimateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClimateViewController.xib; sourceTree = "<group>"; };
-		2801F8F31EB50FD6004B40B4 /* pol4.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = pol4.kml; sourceTree = "<group>"; };
+		2801F8F61EB51CDD004B40B4 /* RisksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisksViewController.h; sourceTree = "<group>"; };
+		2801F8F71EB51CDD004B40B4 /* RisksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisksViewController.m; sourceTree = "<group>"; };
+		2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RisksViewController.xib; sourceTree = "<group>"; };
 		2899116D1EABFC7A0098B4E2 /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289911711EABFC7A0098B4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		289911731EABFC7A0098B4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +146,16 @@
 			path = Climate;
 			sourceTree = "<group>";
 		};
+		2801F8F51EB51CDD004B40B4 /* Risks */ = {
+			isa = PBXGroup;
+			children = (
+				2801F8F61EB51CDD004B40B4 /* RisksViewController.h */,
+				2801F8F71EB51CDD004B40B4 /* RisksViewController.m */,
+				2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */,
+			);
+			path = Risks;
+			sourceTree = "<group>";
+		};
 		289911641EABFC7A0098B4E2 = {
 			isa = PBXGroup;
 			children = (
@@ -198,11 +203,6 @@
 		289911881EABFFBA0098B4E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2801F8F31EB50FD6004B40B4 /* pol4.kml */,
-				2801F8EA1EB50791004B40B4 /* doc.kml */,
-				2801F8E81EB50656004B40B4 /* poligono2.kml */,
-				2801F8E11EB4FE97004B40B4 /* FloodEconomicLossRisk.kml */,
-				2801F8E21EB4FE97004B40B4 /* FloodHazard-FreqDist-85-03.kml */,
 				289911891EABFFBA0098B4E2 /* Fonts */,
 				28F9C83E1EB2BF8900EEF203 /* Localizable.strings */,
 			);
@@ -237,6 +237,7 @@
 		289911AE1EABFFC20098B4E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2801F8F51EB51CDD004B40B4 /* Risks */,
 				2801F8ED1EB50CDB004B40B4 /* Climate */,
 				2899122A1EAD4DD40098B4E2 /* Map */,
 				2899121E1EAC0C590098B4E2 /* MainNavigation */,
@@ -333,7 +334,6 @@
 				2899116B1EABFC7A0098B4E2 /* Resources */,
 				8A70C46BFDBC948E93A04825 /* [CP] Embed Pods Frameworks */,
 				B574AD7F78C4B9D8CC270A62 /* [CP] Copy Pods Resources */,
-				28F9C8371EB2979100EEF203 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -389,15 +389,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2801F8E91EB50656004B40B4 /* poligono2.kml in Resources */,
 				289911A21EABFFBA0098B4E2 /* Lato-Heavy.ttf in Resources */,
-				2801F8E41EB4FE97004B40B4 /* FloodHazard-FreqDist-85-03.kml in Resources */,
-				2801F8E31EB4FE97004B40B4 /* FloodEconomicLossRisk.kml in Resources */,
+				2801F8FA1EB51CDD004B40B4 /* RisksViewController.xib in Resources */,
 				289911AD1EABFFBA0098B4E2 /* Lato-ThinItalic.ttf in Resources */,
 				289911A51EABFFBA0098B4E2 /* Lato-Light.ttf in Resources */,
 				2899119C1EABFFBA0098B4E2 /* Lato-Black.ttf in Resources */,
-				2801F8F41EB50FD6004B40B4 /* pol4.kml in Resources */,
-				2801F8EB1EB50791004B40B4 /* doc.kml in Resources */,
 				2899119E1EABFFBA0098B4E2 /* Lato-Bold.ttf in Resources */,
 				289911A81EABFFBA0098B4E2 /* Lato-MediumItalic.ttf in Resources */,
 				289911AB1EABFFBA0098B4E2 /* Lato-SemiboldItalic.ttf in Resources */,
@@ -425,19 +421,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28F9C8371EB2979100EEF203 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" af9a291119f16efeca2f5283a13047bb10b4c936 bfe2169f1ba76d3dafbb402c4e330574758e822e13c126c95140ba5e001a9471";
-		};
 		8A70C46BFDBC948E93A04825 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,6 +479,7 @@
 				2801F8E71EB505EB004B40B4 /* ClimateDownloader.m in Sources */,
 				28F9C82B1EB002A800EEF203 /* KMLParser.m in Sources */,
 				2899121D1EAC09030098B4E2 /* OnboardingController.m in Sources */,
+				2801F8F91EB51CDD004B40B4 /* RisksViewController.m in Sources */,
 				289912231EAC0C590098B4E2 /* MainNavigationViewController.m in Sources */,
 				289912031EABFFC20098B4E2 /* TutorialViewController.m in Sources */,
 				2801F8F11EB50CDB004B40B4 /* ClimateViewController.m in Sources */,

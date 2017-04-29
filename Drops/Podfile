@@ -3,6 +3,4 @@ target 'Drops' do
     pod 'MBProgressHUD'
     pod 'AFNetworking'
     pod 'SSZipArchive'
-    pod 'Fabric'
-    pod 'TwitterKit'
 end

@@ -76,8 +76,8 @@
                     <items>
                         <tabBarItem title="Map" image="map" selectedImage="map-HL" id="bfl-di-1NP"/>
                         <tabBarItem title="Climate" image="weather" selectedImage="weather-HL" id="Q6J-Q5-NYm"/>
+                        <tabBarItem title="Risks" image="hazard" selectedImage="hazard-HL" id="2q9-e7-03j"/>
                         <tabBarItem title="Resources" image="info" selectedImage="info-HL" id="wL5-w0-Tpg"/>
-                        <tabBarItem title="Settings" image="settings" selectedImage="settings-HL" id="2q9-e7-03j"/>
                     </items>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Dgn-cA-nQZ"/>
@@ -102,12 +102,12 @@
         </view>
     </objects>
     <resources>
+        <image name="hazard" width="35" height="35"/>
+        <image name="hazard-HL" width="35" height="35"/>
         <image name="info" width="35" height="35"/>
         <image name="info-HL" width="35" height="35"/>
         <image name="map" width="35" height="35"/>
         <image name="map-HL" width="35" height="35"/>
-        <image name="settings" width="35" height="35"/>
-        <image name="settings-HL" width="35" height="35"/>
         <image name="weather" width="35" height="35"/>
         <image name="weather-HL" width="35" height="35"/>
     </resources>

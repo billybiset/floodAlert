@@ -2,86 +2,75 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MBProgressHUD.h>
 
-#import "ClimateViewController.h"
+#import "KMLParser.h"
+
+#import "RisksViewController.h"
 
 #import "UIColor+Drops.h"
 #import "UIHelper.h"
 
-#import "ClimateDownloader.h"
 
-@interface ClimateViewController () <MKMapViewDelegate>
+@interface RisksViewController () <MKMapViewDelegate>
 
 @property (nonatomic) NSOperationQueue *processingQueue;
 
 @property (nonatomic) IBOutlet MKMapView *map;
-@property (nonatomic) IBOutlet UITextView *instructionsTextView;
-@property (nonatomic) IBOutlet UILabel *precipiationIntensityLabel;
+@property (nonatomic) IBOutlet UIView *menuView;
+@property (nonatomic) IBOutlet UIView *menuDetailsView;
+@property (nonatomic) IBOutlet UIView *mapCoverView;
+@property (nonatomic) IBOutlet NSLayoutConstraint *menuViewHeight;
+@property (nonatomic) IBOutlet NSLayoutConstraint *menuViewWidth;
+@property (nonatomic) IBOutlet UIButton *openMenuButton;
+
+@property (nonatomic) IBOutlet UILabel *dateLabel;
+@property (nonatomic) IBOutlet UILabel *locationLabel;
+@property (nonatomic) IBOutlet UILabel *mapLabel;
+@property (nonatomic) IBOutlet UILabel *waterLabel;
+@property (nonatomic) IBOutlet UILabel *shareLabel;
+
+@property (nonatomic) IBOutlet UIButton *locationDetailsButton;
+
+@property (nonatomic) IBOutlet UIButton *dateButton;
+@property (nonatomic) IBOutlet UIButton *shareButton;
+
+@property (nonatomic) IBOutlet UISegmentedControl *mapTypeSegmentedControl;
+@property (nonatomic) IBOutlet UISegmentedControl *waterTypeSegmentedControl;
+
+@property (nonatomic) NSDateFormatter *dateFormatter;
+
+@property (nonatomic) NSDate *currentDate;
+
+@property (nonatomic) CGFloat squareHeight;
+@property (nonatomic) NSMutableSet *loadedFiles;
+
+@property (nonatomic) KMLParser *kmlParser;
+
+@property (nonatomic) NSMutableDictionary *filenamesToOverlays;
+@property (nonatomic) NSMutableDictionary *filenamesToAnnotations;
 
 @end
 
-@implementation ClimateViewController
+@implementation RisksViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self localizeOutlets];
+    
     self.map.delegate = self;
     
-    [self localizeOutlets];
+    /*
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"inundacion" ofType:@"kml"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    [self processFile:url];
+     */
 }
 
 
 - (void)localizeOutlets
 {
-    
 }
-
-- (double)fahrenheitToCelsius:(double)fahrenheit
-{
-    return (fahrenheit - 32) / 1.8;
-}
-
-- (void)updateBubbleWithInfo:(NSDictionary *)information
-{
-    NSDictionary *currently = information[@"currently"];
-    
-    NSString *coordinates = [NSString stringWithFormat:@"%f, %f",
-                             self.map.centerCoordinate.latitude,
-                             self.map.centerCoordinate.longitude];
-    
-    
-    NSString *fahrenheitStr = [currently[@"temperature"] description];
-    fahrenheitStr = [fahrenheitStr substringToIndex:fahrenheitStr.length-1];
-    double fahrenheit = [fahrenheitStr doubleValue];
-    
-    double celsius = [self fahrenheitToCelsius:fahrenheit];
-    
-    self.instructionsTextView.text =
-    [NSString stringWithFormat:
-     @"Coordinates: %@\nTemperature: %@\nPrecipitation Intensity: %@ %%\nPrecipitation Probability: %@ %%",
-     coordinates,
-     currently[@"temperature"] ? [@(floor(celsius)) description] : @"N/A",
-     currently[@"precipIntensity"] ? [currently[@"precipIntensity"] description] : @"N/A",
-     currently[@"precipProbability"] ? [currently[@"precipProbability"] description] : @"N/A"
-     ];
-}
-
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
-    CLLocationDegrees longitude = self.map.centerCoordinate.latitude;
-    
-    [[ClimateDownloader instance] downloadLatitude:latitude
-                                         longitude:longitude
-                                          callback:^(NSDictionary *information, NSError *error)
-     {
-         if ( error == nil )
-         {
-             [self updateBubbleWithInfo:information];
-         }
-     }];
-}
-
 /*
     [self.shareButton setTitle:NSLocalizedString(@"SHARE",) forState:UIControlStateNormal];
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"STANDARD", ) forSegmentAtIndex:0];
@@ -154,6 +143,7 @@
          [self.loadedFiles addObject:filename];
     }];
 }
+ */
 
 - (void)processFile:(NSURL *)fileURL
 {
@@ -176,12 +166,43 @@
      }];
 }
 
+- (void)addOverlays:(NSArray *)overlays annotations:(NSArray *)annotations filename:(NSString *)filename
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^
+     {
+         [self.map addOverlays:[overlays subarrayWithRange:NSMakeRange(0, MIN(100, overlays.count - 1)) ]];
+         [self.map addAnnotations:annotations];
+         
+         [self.loadedFiles addObject:filename];
+     }];
+}
+
 #pragma mark MKMapViewDelegate
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
-    MKOverlayRenderer *renderer = [self.kmlParser rendererForOverlay:overlay];
-    return renderer;
+    NSLog(@"Class is %@", NSStringFromClass([overlay class]));
+    
+    if ( [overlay isKindOfClass:[MKPolygon class]] )
+    {
+        static CGFloat red = 0.1;
+        static CGFloat green = 0.7;
+        static CGFloat blue = 0.9;
+        
+        MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:(MKPolygon *)overlay];
+        polygonRenderer.fillColor = [UIColor colorWithRed:red green:green blue:blue alpha:0.6];
+        polygonRenderer.strokeColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+        polygonRenderer.lineWidth = 2.0;
+        
+        red = red + 0.07;
+        green = green - 0.02;
+        blue = blue - 0.05;
+        
+        return polygonRenderer;
+
+    }
+
+    return nil;
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -189,82 +210,23 @@
     return [self.kmlParser viewForAnnotation:annotation];
 }
 
-- (BOOL)useMemoryCaching
-{
-    return NO;
-}
-
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    return;
-    
-    CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
-    CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
-
-    NSString *locationString = [NSString stringWithFormat:@"%f, %f",
-                                latitude,
-                                longitude];
-    
-    [self.locationDetailsButton setTitle:locationString forState:UIControlStateNormal];
-    
-    [self.processingQueue addOperation:[NSBlockOperation blockOperationWithBlock:^
+    for ( MKPolygon *polygon in self.map.overlays )
     {
-        NSString *filename = [[FileDownloader instance] filenameForDate:self.currentDate
-                                                               latitude:latitude
-                                                              longitude:longitude
-                                                                 zipped:NO];
+        MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
         
-        if ( ! [self.loadedFiles containsObject:filename] )
+        MKMapPoint mapPoint = MKMapPointForCoordinate(self.map.centerCoordinate);
+        MKMapPoint currentMapPoint = mapPoint;
+        CGPoint polygonViewPoint = [polygonRenderer pointForMapPoint:currentMapPoint];
+        
+        if ( CGPathContainsPoint(polygonRenderer.path, nil, polygonViewPoint, true) )
         {
-            NSLog(@"Loading %@", filename);
-            
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^
-             {
-                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view
-                                                           animated:YES];
-                 hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-                 hud.backgroundView.color = [UIColor colorWithWhite:0.f alpha:.2f];
-                 hud.label.text = NSLocalizedString(@"PROCESSING", nil);
-             }];
-            
-            NSArray *overlays = self.filenamesToOverlays[filename];
-            NSArray *annotations = self.filenamesToAnnotations[filename];
-            
-            if ( overlays != nil || annotations != nil )
-            {
-                NSLog(@"File %@ was in memory", filename);
-                [self addOverlays:overlays annotations:annotations filename:filename];
-                
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^
-                 {
-                     [MBProgressHUD hideHUDForView:self.view animated:YES];
-                 }];
-            }
-            else
-            {
-                [[FileDownloader instance] downloadForDate:self.currentDate
-                                                  latitude:latitude
-                                                 longitude:longitude
-                                                  callback:^(NSURL *fileURL, NSError *error)
-                 {
-                     if ( error == nil )
-                     {
-                         [self processFile:fileURL];
-                     }
-                     else
-                     {
-                         [[NSOperationQueue mainQueue] addOperationWithBlock:^
-                          {
-                              [MBProgressHUD hideHUDForView:self.view animated:YES];
-                          }];
-                     }
-                 }];
-            }
-            
+            NSLog(@"inside");
         }
-    }]];
+    }
 }
-
+/*
 -(void)resetAnnotations
 {
     [self.map removeAnnotations:self.map.annotations];
@@ -278,11 +240,9 @@
 }
 
 #pragma mark - Action
-*/
+
 - (IBAction)toggleMenu:(id)sender
 {
-}
-    /*
     if ( self.menuViewHeight.constant == self.squareHeight )
     {
         [self.openMenuButton setTitle:@"×" forState:UIControlStateNormal];
