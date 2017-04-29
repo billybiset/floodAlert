@@ -389,6 +389,16 @@
     }];
 }
 
+- (IBAction)minusOneDay:(id)sender
+{
+    [self changeDate:[self.currentDate dateByAddingTimeInterval:-24*60*60]];
+}
+
+- (IBAction)plusOneDay:(id)sender
+{
+    [self changeDate:[self.currentDate dateByAddingTimeInterval:24*60*60]];
+}
+
 - (void)dateChanged:(UIDatePicker *)datePicker
 {
     [self changeDate:datePicker.date];
@@ -404,39 +414,3 @@
 }
 
 @end
-
-/*
- // Walk the list of overlays and annotations and create a MKMapRect that
- // bounds all of them and store it into flyTo.
- MKMapRect flyTo = MKMapRectNull;
- for (id <MKOverlay> overlay in overlays)
- {
- if (MKMapRectIsNull(flyTo))
- {
- flyTo = [overlay boundingMapRect];
- }
- else
- {
- flyTo = MKMapRectUnion(flyTo, [overlay boundingMapRect]);
- }
- }
- 
- for (id <MKAnnotation> annotation in annotations)
- {
- 
- MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
- MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
- 
- if (MKMapRectIsNull(flyTo))
- {
- flyTo = pointRect;
- }
- else
- {
- flyTo = MKMapRectUnion(flyTo, pointRect);
- }
- }
- 
- // Position the map so that all overlays and annotations are visible on screen.
- self.map.visibleMapRect = flyTo;
- */

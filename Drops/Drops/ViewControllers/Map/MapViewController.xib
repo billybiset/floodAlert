@@ -164,6 +164,9 @@
                             </constraints>
                             <state key="normal" title=" " image="menos"/>
                             <state key="highlighted" image="menos-HL"/>
+                            <connections>
+                                <action selector="minusOneDay:" destination="-1" eventType="touchUpInside" id="J17-gT-fHT"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xl-kr-Q9m">
                             <rect key="frame" x="271" y="48" width="40" height="40"/>
@@ -173,6 +176,9 @@
                             </constraints>
                             <state key="normal" title=" " image="mas"/>
                             <state key="highlighted" image="mas-HL"/>
+                            <connections>
+                                <action selector="plusOneDay:" destination="-1" eventType="touchUpInside" id="xK5-60-jeM"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwj-Gd-guU">
                             <rect key="frame" x="57" y="58" width="42" height="21"/>
