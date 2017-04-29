@@ -18,7 +18,8 @@ typedef enum
 
 - (NSString *)filenameForDate:(NSDate *)date
                      latitude:(CLLocationDegrees)latitude
-                    longitude:(CLLocationDegrees)longitude;
+                    longitude:(CLLocationDegrees)longitude
+                       zipped:(BOOL)zipped;
 
 - (void)downloadForDate:(NSDate *)date
                latitude:(CLLocationDegrees)latitude

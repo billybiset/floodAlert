@@ -41,6 +41,9 @@
 @property (nonatomic) CGFloat squareHeight;
 @property (nonatomic) NSMutableSet *loadedFiles;
 
+@property (nonatomic) NSMutableDictionary *filenamesToOverlays;
+@property (nonatomic) NSMutableDictionary *filenamesToAnnotations;
+
 @end
 
 @implementation MapViewController
@@ -50,6 +53,8 @@
     [super viewDidLoad];
     
     self.processingQueue = [NSOperationQueue new];
+    self.filenamesToOverlays = [NSMutableDictionary new];
+    self.filenamesToAnnotations = [NSMutableDictionary new];
     
     self.loadedFiles = [NSMutableSet new];
     
@@ -91,6 +96,8 @@
 
 - (void)changeDate:(NSDate *)date
 {
+    [self hideMenuDetailsIfNecessary];
+    
     if ( date == nil )
     {
         //Default is yesterday
@@ -116,6 +123,20 @@
     }
 }
 
+- (void)addOverlays:(NSArray *)overlays annotations:(NSArray *)annotations filename:(NSString *)filename
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^
+     {
+         self.filenamesToOverlays[filename] = overlays;
+         self.filenamesToAnnotations[filename] = annotations;
+         
+         [self.map addOverlays:overlays];
+         [self.map addAnnotations:annotations];
+         
+         [self.loadedFiles addObject:filename];
+    }];
+}
+
 - (void)processFile:(NSURL *)fileURL
 {
     if ( fileURL == nil )
@@ -126,25 +147,15 @@
     self.kmlParser = [[KMLParser alloc] initWithURL:fileURL];
     [self.kmlParser parseKML];
     
+    NSArray *overlays = [self.kmlParser overlays];
+    NSArray *annotations = [self.kmlParser points];
+    
+    NSString *filename = fileURL.lastPathComponent;
+    [self addOverlays:overlays annotations:annotations filename:filename];
     [[NSOperationQueue mainQueue] addOperationWithBlock:^
-    {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view
-                                                  animated:YES];
-        
-        hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
-        hud.backgroundView.color = [UIColor colorWithWhite:0.f alpha:.2f];
-        hud.label.text = NSLocalizedString(@"PROCESSING", nil);
-        
-        // Add all of the MKOverlay objects parsed from the KML file to the map.
-        NSArray *overlays = [self.kmlParser overlays];
-        [self.map addOverlays:overlays];
-        
-        // Add all of the MKAnnotation objects parsed from the KML file to the map.
-        NSArray *annotations = [self.kmlParser points];
-        [self.map addAnnotations:annotations];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }];
+     {
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+     }];
 }
 
 #pragma mark MKMapViewDelegate
@@ -169,21 +180,55 @@
         
         NSString *filename = [[FileDownloader instance] filenameForDate:self.currentDate
                                                                latitude:latitude
-                                                              longitude:longitude];
+                                                              longitude:longitude
+                                                                 zipped:NO];
         
         if ( ! [self.loadedFiles containsObject:filename] )
         {
-            [[FileDownloader instance] downloadForDate:self.currentDate
-                                              latitude:latitude
-                                             longitude:longitude
-                                              callback:^(NSURL *fileURL, NSError *error)
+            NSLog(@"Loading %@", filename);
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^
              {
-                 if ( error == nil )
-                 {
-                     [self processFile:fileURL];
-                     [self.loadedFiles addObject:filename];
-                 }
+                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view
+                                                           animated:YES];
+                 hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
+                 hud.backgroundView.color = [UIColor colorWithWhite:0.f alpha:.2f];
+                 hud.label.text = NSLocalizedString(@"PROCESSING", nil);
              }];
+            
+            NSArray *overlays = self.filenamesToOverlays[filename];
+            NSArray *annotations = self.filenamesToAnnotations[filename];
+            
+            if ( overlays != nil || annotations != nil )
+            {
+                NSLog(@"File %@ was in memory", filename);
+                [self addOverlays:overlays annotations:annotations filename:filename];
+                
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^
+                 {
+                     [MBProgressHUD hideHUDForView:self.view animated:YES];
+                 }];
+            }
+            else
+            {
+                [[FileDownloader instance] downloadForDate:self.currentDate
+                                                  latitude:latitude
+                                                 longitude:longitude
+                                                  callback:^(NSURL *fileURL, NSError *error)
+                 {
+                     if ( error == nil )
+                     {
+                         [self processFile:fileURL];
+                     }
+                     else
+                     {
+                         [[NSOperationQueue mainQueue] addOperationWithBlock:^
+                          {
+                              [MBProgressHUD hideHUDForView:self.view animated:YES];
+                          }];
+                     }
+                 }];
+            }
             
         }
     }]];

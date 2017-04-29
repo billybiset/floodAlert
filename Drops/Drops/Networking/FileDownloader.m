@@ -73,41 +73,63 @@
 {
     NSURL *documentsDirectoryURL = [self documentsDirectoryURL];
     
-    NSString *filename = [self filenameForDate:date latitude:latitude longitude:longitude];
+    NSString *filenameUnzipped = [self filenameForDate:date latitude:latitude longitude:longitude zipped:NO];
     
-    NSURL *fileURL = [documentsDirectoryURL URLByAppendingPathComponent:filename];
-    
+    NSURL *fileURL = [documentsDirectoryURL URLByAppendingPathComponent:filenameUnzipped];
+
     if ( [[NSFileManager defaultManager] fileExistsAtPath:fileURL.path isDirectory:nil] )
     {
-        [self unzipFileAt:fileURL callback:callback];
+        NSLog(@"File %@ was in disk", fileURL.lastPathComponent);
+        if ( callback != nil )
+        {
+            callback(fileURL, nil);
+        }
     }
     else
     {
-        NSString *urlString = [self urlForDate:date latitude:latitude longitude:longitude];
+        NSString *filenameZipped = [self filenameForDate:date latitude:latitude longitude:longitude zipped:YES];
+        fileURL = [documentsDirectoryURL URLByAppendingPathComponent:filenameZipped];
         
-        NSURL *URL = [NSURL URLWithString:urlString];
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-        
-        NSURLSessionDownloadTask *downloadTask = [self.sessionManager
-                                                  downloadTaskWithRequest:request
-                                                  progress:^(NSProgress * _Nonnull downloadProgress)
-                                                  {
-                                                      
-                                                  }
-                                                  destination:^NSURL *(NSURL *targetPath, NSURLResponse *response)
-                                                  {
-                                                      return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
-                                                  }
-                                                  completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error)
-                                                  {
-                                                      if ( error == nil )
+        if ( [[NSFileManager defaultManager] fileExistsAtPath:fileURL.path isDirectory:nil] )
+        {
+            NSLog(@"Zipped file %@ was in disk", fileURL.lastPathComponent);
+            [self unzipFileAt:fileURL callback:callback];
+        }
+        else
+        {
+            NSString *urlString = [self urlForDate:date latitude:latitude longitude:longitude];
+            
+            NSURL *URL = [NSURL URLWithString:urlString];
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+            
+            NSLog(@"Downloading %@ was in disk", fileURL.lastPathComponent);
+            
+            NSURLSessionDownloadTask *downloadTask = [self.sessionManager
+                                                      downloadTaskWithRequest:request
+                                                      progress:^(NSProgress * _Nonnull downloadProgress)
                                                       {
-                                                          [self unzipFileAt:filePath callback:callback];
+                                                          
                                                       }
-                                                  }];
-        
-        [downloadTask resume];
+                                                      destination:^NSURL *(NSURL *targetPath, NSURLResponse *response)
+                                                      {
+                                                          return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+                                                      }
+                                                      completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error)
+                                                      {
+                                                          if ( error == nil )
+                                                          {
+                                                              NSLog(@"Downloaded file %@", fileURL.lastPathComponent);
+                                                              [self unzipFileAt:filePath callback:callback];
+                                                          }
+                                                          else
+                                                          {
+                                                              NSLog(@"Failed to download %@", fileURL.lastPathComponent);
+                                                          }
+                                                      }];
+            
+            [downloadTask resume];
+        }
     }
 }
 
@@ -135,7 +157,10 @@
     return @"MSW";
 }
 
-- (NSString *)filenameForDate:(NSDate *)date latitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude
+- (NSString *)filenameForDate:(NSDate *)date
+                     latitude:(CLLocationDegrees)latitude
+                    longitude:(CLLocationDegrees)longitude
+                       zipped:(BOOL)zipped
 {
     NSString *latitudeString = [self latitudeStringForLatitude:latitude];
     NSString *longitudeString = [self longitudeStringForLongitude:longitude];
@@ -146,13 +171,14 @@
     
     NSString *dataTypeString = [self waterTypeString];
     
-    return [NSString stringWithFormat:@"%@_%@%@_%@_%@_%@.kmz",
+    return [NSString stringWithFormat:@"%@_%@%@_%@_%@_%@.%@",
             dataTypeString,
             yearString,
             dayOfYearString,
             locationString,
             @"3D3OT",
-            @"V"];
+            @"V",
+            zipped ? @"kmz" : @"kml"];
 }
 
 - (NSString *)yearStringForDate:(NSDate *)date
@@ -214,6 +240,8 @@
                                     create:NO
                                     error:nil];
     
+    NSLog(@"Unzipping %@", fileURL.lastPathComponent);
+    
     [SSZipArchive unzipFileAtPath:fileURL.path
                     toDestination:documentsDirectoryURL.path
                   progressHandler:^(NSString * _Nonnull entry, unz_file_info zipInfo, long entryNumber, long total)
@@ -224,6 +252,7 @@
     {
         if ( error != nil )
         {
+            NSLog(@"Failed to unzip %@", fileURL.lastPathComponent);
             if ( callback != nil )
             {
                 callback(nil, error);
@@ -248,6 +277,7 @@
                                                 toURL:destination
                                                 error:&moveError];
         
+        NSLog(@"Completed unzip of %@", destination.lastPathComponent);
         if ( callback != nil )
         {
             callback(destination, moveError);
