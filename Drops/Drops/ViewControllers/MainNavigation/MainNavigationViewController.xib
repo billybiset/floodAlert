@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainNavigationViewController">
+            <connections>
+                <outlet property="containerView" destination="T5A-DJ-5Dm" id="Z4p-EI-1R3"/>
+                <outlet property="containerViewTop" destination="PoD-xN-3By" id="5UE-y3-LFt"/>
+                <outlet property="separatorView" destination="WGb-xw-dma" id="LnR-5d-1kN"/>
+                <outlet property="tabBar" destination="f7e-X8-4Si" id="kZg-Pc-dbI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5A-DJ-5Dm">
+                    <rect key="frame" x="0.0" y="42" width="375" height="576"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGb-xw-dma">
+                            <rect key="frame" x="0.0" y="575" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="h8c-qu-zWt"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="WGb-xw-dma" secondAttribute="trailing" id="Ek4-hx-sOq"/>
+                        <constraint firstItem="WGb-xw-dma" firstAttribute="leading" secondItem="T5A-DJ-5Dm" secondAttribute="leading" id="LJ3-9D-Nv4"/>
+                        <constraint firstAttribute="bottom" secondItem="WGb-xw-dma" secondAttribute="bottom" id="cb7-a9-Ia1"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k9n-oB-SY2">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading Files" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-YQ-Uhr">
+                            <rect key="frame" x="96.5" y="2" width="183" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="8f0-oW-YNL"/>
+                                <constraint firstAttribute="width" constant="183" id="wD4-aP-ITL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ie6-SH-VTc">
+                            <rect key="frame" x="16" y="31" width="343" height="8"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.38503187894821167" green="0.46831345558166504" blue="0.52207684516906738" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Ie6-SH-VTc" secondAttribute="bottom" constant="10" id="DQm-Tv-aO0"/>
+                        <constraint firstAttribute="trailing" secondItem="Ie6-SH-VTc" secondAttribute="trailing" constant="16" id="Kbh-Xj-ICn"/>
+                        <constraint firstItem="aQm-YQ-Uhr" firstAttribute="top" secondItem="k9n-oB-SY2" secondAttribute="top" constant="2" id="NaD-OO-0hD"/>
+                        <constraint firstAttribute="height" constant="49" id="SQn-Km-BIW"/>
+                        <constraint firstItem="Ie6-SH-VTc" firstAttribute="leading" secondItem="k9n-oB-SY2" secondAttribute="leading" constant="16" id="hzc-ZA-a2V"/>
+                        <constraint firstItem="aQm-YQ-Uhr" firstAttribute="centerX" secondItem="k9n-oB-SY2" secondAttribute="centerX" id="s0K-fq-lmj"/>
+                        <constraint firstItem="Ie6-SH-VTc" firstAttribute="top" secondItem="aQm-YQ-Uhr" secondAttribute="bottom" constant="8" id="u1A-YG-zWa"/>
+                    </constraints>
+                </view>
+                <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7e-X8-4Si">
+                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <items>
+                        <tabBarItem title="Map" image="map" selectedImage="map-HL" id="bfl-di-1NP"/>
+                        <tabBarItem title="Resources" image="info" selectedImage="info-HL" id="wL5-w0-Tpg"/>
+                        <tabBarItem title="Settings" image="settings" selectedImage="settings-HL" id="2q9-e7-03j"/>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Dgn-cA-nQZ"/>
+                    </connections>
+                </tabBar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="k9n-oB-SY2" secondAttribute="trailing" id="1bB-fr-IVz"/>
+                <constraint firstItem="T5A-DJ-5Dm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="42" id="PoD-xN-3By"/>
+                <constraint firstItem="f7e-X8-4Si" firstAttribute="top" secondItem="T5A-DJ-5Dm" secondAttribute="bottom" id="QLX-Kz-MRu"/>
+                <constraint firstItem="f7e-X8-4Si" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VfI-Fe-ikh"/>
+                <constraint firstAttribute="trailing" secondItem="T5A-DJ-5Dm" secondAttribute="trailing" id="Xds-VL-LsT"/>
+                <constraint firstItem="k9n-oB-SY2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z6b-Jd-8Uu"/>
+                <constraint firstAttribute="bottom" secondItem="f7e-X8-4Si" secondAttribute="bottom" id="lUd-xL-VHY"/>
+                <constraint firstAttribute="trailing" secondItem="f7e-X8-4Si" secondAttribute="trailing" id="n9e-sf-Ger"/>
+                <constraint firstItem="f7e-X8-4Si" firstAttribute="top" secondItem="k9n-oB-SY2" secondAttribute="bottom" constant="-49" id="qYA-yI-ROa"/>
+                <constraint firstItem="T5A-DJ-5Dm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rv7-6u-NMy"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="info" width="50" height="50"/>
+        <image name="info-HL" width="50" height="50"/>
+        <image name="map" width="50" height="50"/>
+        <image name="map-HL" width="50" height="50"/>
+        <image name="settings" width="50" height="50"/>
+        <image name="settings-HL" width="50" height="50"/>
+    </resources>
+</document>

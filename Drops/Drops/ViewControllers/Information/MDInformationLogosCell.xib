@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="informationLogosCellId" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="MDInformationLogosCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5e-oi-IBr">
+                        <rect key="frame" x="47" y="82" width="226" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="226" id="4c0-6S-ozr"/>
+                            <constraint firstAttribute="height" constant="21" id="Bc7-Fy-4ux"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="color-logo" translatesAutoresizingMaskIntoConstraints="NO" id="hV4-NJ-Hms">
+                        <rect key="frame" x="8" y="20" width="304" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="sgN-fm-4mf"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="D5e-oi-IBr" secondAttribute="bottom" constant="8" id="4Pe-Wa-fKX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hV4-NJ-Hms" secondAttribute="trailing" id="C3d-bb-Q8Y"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="hV4-NJ-Hms" secondAttribute="leading" id="CVN-YU-3mN"/>
+                    <constraint firstAttribute="topMargin" secondItem="hV4-NJ-Hms" secondAttribute="top" constant="-12" id="egb-P1-Lwm"/>
+                    <constraint firstItem="D5e-oi-IBr" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vEC-OG-SuZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="logo3" destination="hV4-NJ-Hms" id="znP-hw-jCZ"/>
+                <outlet property="studyNameLabel" destination="D5e-oi-IBr" id="1YY-yr-ScO"/>
+            </connections>
+            <point key="canvasLocation" x="525" y="372"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="color-logo" width="250" height="53"/>
+    </resources>
+</document>

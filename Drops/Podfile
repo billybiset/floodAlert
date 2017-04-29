@@ -1,0 +1,8 @@
+target 'Drops' do
+    platform :ios, '9.0'
+    pod 'MBProgressHUD'
+    pod 'AFNetworking'
+    pod 'SSZipArchive'
+    pod 'Fabric'
+    pod 'TwitterKit'
+end

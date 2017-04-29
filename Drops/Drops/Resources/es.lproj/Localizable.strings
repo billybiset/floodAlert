@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Drops
+
+  Created by Guillermo Biset on 4/27/17.
+  Copyright © 2017 Grafo. All rights reserved.
+*/
+
+"DATE" = "Fecha";
+"SHARE" = "Compartir";
+"STANDARD" = "Estándar";
+"SATELLITE" = "Satélite";
+"HYBRID" = "Híbrido";
+"SURFACE WATER" = "Agua de Superficie";
+"FLOOD WATER" = "Agua de Inundación";
+"MAP" = "Mapa";
+"RESOURCES" = "Recursos";
+"SETTINGS" = "Configuración";
+"PROCESSING" = "Procesando...";
+"LOCATION" = "Ubicación";
+"WATER" = "Agua";
+"SHARE" = "Compartir";
