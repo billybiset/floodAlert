@@ -28,8 +28,11 @@
 @property (nonatomic) IBOutlet UILabel *waterLabel;
 @property (nonatomic) IBOutlet UILabel *shareLabel;
 
+@property (nonatomic) IBOutlet UIButton *locationDetailsButton;
+
 @property (nonatomic) IBOutlet UIButton *dateButton;
 @property (nonatomic) IBOutlet UIButton *shareButton;
+
 @property (nonatomic) IBOutlet UISegmentedControl *mapTypeSegmentedControl;
 @property (nonatomic) IBOutlet UISegmentedControl *waterTypeSegmentedControl;
 
@@ -173,11 +176,17 @@
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
+    CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
+    CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
+
+    NSString *locationString = [NSString stringWithFormat:@"%f, %f",
+                                latitude,
+                                longitude];
+    
+    [self.locationDetailsButton setTitle:locationString forState:UIControlStateNormal];
+    
     [self.processingQueue addOperation:[NSBlockOperation blockOperationWithBlock:^
     {
-        CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
-        CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
-        
         NSString *filename = [[FileDownloader instance] filenameForDate:self.currentDate
                                                                latitude:latitude
                                                               longitude:longitude

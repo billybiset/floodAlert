@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="dateButton" destination="gjN-Uh-Ahr" id="RCU-Gy-gtY"/>
                 <outlet property="dateLabel" destination="vwj-Gd-guU" id="Kzw-b4-4SO"/>
+                <outlet property="locationDetailsButton" destination="uGt-8j-oi0" id="IA3-W6-vTg"/>
                 <outlet property="locationLabel" destination="Sz5-jd-q6q" id="JCU-hz-Nmd"/>
                 <outlet property="map" destination="fmL-NI-hbt" id="yTa-qw-eK9"/>
                 <outlet property="mapCoverView" destination="8r3-t7-lzY" id="c7q-tu-7gs"/>
