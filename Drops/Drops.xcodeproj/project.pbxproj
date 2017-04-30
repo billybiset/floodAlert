@@ -15,6 +15,10 @@
 		2801F8FA1EB51CDD004B40B4 /* RisksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */; };
 		287E492B1EB62F240062CB5A /* economico.kml in Resources */ = {isa = PBXBuildFile; fileRef = 287E49291EB62F240062CB5A /* economico.kml */; };
 		287E492C1EB62F240062CB5A /* inundacion.kml in Resources */ = {isa = PBXBuildFile; fileRef = 287E492A1EB62F240062CB5A /* inundacion.kml */; };
+		287E49341EB651C60062CB5A /* ResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287E49321EB651C60062CB5A /* ResourcesViewController.m */; };
+		287E49351EB651C60062CB5A /* ResourcesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287E49331EB651C60062CB5A /* ResourcesViewController.xib */; };
+		287E49391EB661C40062CB5A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 287E49371EB661C40062CB5A /* WebViewController.m */; };
+		287E493A1EB661C40062CB5A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 287E49381EB661C40062CB5A /* WebViewController.xib */; };
 		289911721EABFC7A0098B4E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911711EABFC7A0098B4E2 /* main.m */; };
 		289911751EABFC7A0098B4E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911741EABFC7A0098B4E2 /* AppDelegate.m */; };
 		2899117D1EABFC7A0098B4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2899117C1EABFC7A0098B4E2 /* Assets.xcassets */; };
@@ -65,6 +69,12 @@
 		2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RisksViewController.xib; sourceTree = "<group>"; };
 		287E49291EB62F240062CB5A /* economico.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = economico.kml; sourceTree = "<group>"; };
 		287E492A1EB62F240062CB5A /* inundacion.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = inundacion.kml; sourceTree = "<group>"; };
+		287E49311EB651C60062CB5A /* ResourcesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesViewController.h; sourceTree = "<group>"; };
+		287E49321EB651C60062CB5A /* ResourcesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourcesViewController.m; sourceTree = "<group>"; };
+		287E49331EB651C60062CB5A /* ResourcesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourcesViewController.xib; sourceTree = "<group>"; };
+		287E49361EB661C40062CB5A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		287E49371EB661C40062CB5A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		287E49381EB661C40062CB5A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		2899116D1EABFC7A0098B4E2 /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289911711EABFC7A0098B4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		289911731EABFC7A0098B4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,6 +170,19 @@
 			path = Risks;
 			sourceTree = "<group>";
 		};
+		287E492D1EB651880062CB5A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				287E49311EB651C60062CB5A /* ResourcesViewController.h */,
+				287E49321EB651C60062CB5A /* ResourcesViewController.m */,
+				287E49331EB651C60062CB5A /* ResourcesViewController.xib */,
+				287E49361EB661C40062CB5A /* WebViewController.h */,
+				287E49371EB661C40062CB5A /* WebViewController.m */,
+				287E49381EB661C40062CB5A /* WebViewController.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		289911641EABFC7A0098B4E2 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +266,7 @@
 		289911AE1EABFFC20098B4E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				287E492D1EB651880062CB5A /* Resources */,
 				2801F8F51EB51CDD004B40B4 /* Risks */,
 				2801F8ED1EB50CDB004B40B4 /* Climate */,
 				2899122A1EAD4DD40098B4E2 /* Map */,
@@ -398,6 +422,7 @@
 				289911A21EABFFBA0098B4E2 /* Lato-Heavy.ttf in Resources */,
 				2801F8FA1EB51CDD004B40B4 /* RisksViewController.xib in Resources */,
 				289911AD1EABFFBA0098B4E2 /* Lato-ThinItalic.ttf in Resources */,
+				287E493A1EB661C40062CB5A /* WebViewController.xib in Resources */,
 				289911A51EABFFBA0098B4E2 /* Lato-Light.ttf in Resources */,
 				2899119C1EABFFBA0098B4E2 /* Lato-Black.ttf in Resources */,
 				2899119E1EABFFBA0098B4E2 /* Lato-Bold.ttf in Resources */,
@@ -420,6 +445,7 @@
 				289911A41EABFFBA0098B4E2 /* Lato-Italic.ttf in Resources */,
 				289912291EAD4DCE0098B4E2 /* MapViewController.xib in Resources */,
 				289911AC1EABFFBA0098B4E2 /* Lato-Thin.ttf in Resources */,
+				287E49351EB651C60062CB5A /* ResourcesViewController.xib in Resources */,
 				289912241EAC0C590098B4E2 /* MainNavigationViewController.xib in Resources */,
 				289911A61EABFFBA0098B4E2 /* Lato-LightItalic.ttf in Resources */,
 				289911A91EABFFBA0098B4E2 /* Lato-Regular.ttf in Resources */,
@@ -482,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				289911751EABFC7A0098B4E2 /* AppDelegate.m in Sources */,
+				287E49391EB661C40062CB5A /* WebViewController.m in Sources */,
 				289912281EAD4DCE0098B4E2 /* MapViewController.m in Sources */,
 				28F9C82A1EB002A800EEF203 /* UIColor+Drops.m in Sources */,
 				2801F8E71EB505EB004B40B4 /* ClimateDownloader.m in Sources */,
@@ -493,6 +520,7 @@
 				2801F8F11EB50CDB004B40B4 /* ClimateViewController.m in Sources */,
 				289911721EABFC7A0098B4E2 /* main.m in Sources */,
 				28F9C8361EB0435A00EEF203 /* FileDownloader.m in Sources */,
+				287E49341EB651C60062CB5A /* ResourcesViewController.m in Sources */,
 				28F9C82C1EB002A800EEF203 /* UIHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

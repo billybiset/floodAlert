@@ -185,10 +185,9 @@
 
 - (double)calculateRiskForProbability:(double)precipProbability intensity:(double)precipIntensity staticRisk:(double)staticRisk
 {
-    double normalizacionMilimetros = precipIntensity / 130.0;
+    double normalizacionMilimetros = (precipIntensity * 25.4) / 100.0;
     double normalizacionInundabilidad = staticRisk / 10.0;
-    //double result = normalizacionInundabilidad + (0.2 * (precipIntensity * normalizacionMilimetros));
-    double result = (normalizacionInundabilidad * 0.6 ) + (0.4 * (precipIntensity * normalizacionMilimetros));
+    double result = (pow(normalizacionInundabilidad, 2.0) * 0.4 ) + ( 0.6 * sqrt(normalizacionMilimetros));
     
     return MAX(0.0, MIN(1.0, result));
 }
@@ -201,19 +200,29 @@
     
     double maxRisk = 0.0;
     
-    for ( NSDictionary *dailyData in data )
+    if  (self.map.mapType == MKMapTypeSatellite )
     {
-        double precipProbability = [dailyData[@"precipProbability"] doubleValue];
-        double precipIntensity = [dailyData[@"precipIntensity"] doubleValue];
-        
-        double calculatedRisk = [self calculateRiskForProbability:precipProbability intensity:precipIntensity staticRisk:staticRisk];
-        maxRisk = MAX(maxRisk,  calculatedRisk);
+        maxRisk = [self calculateRiskForProbability:0.7 intensity:(85.0/25.4) staticRisk:staticRisk];
+    }
+    else
+    {
+        for ( NSDictionary *dailyData in data )
+        {
+            double precipProbability = [dailyData[@"precipProbability"] doubleValue];
+            double precipIntensity = [dailyData[@"precipIntensity"] doubleValue];
+            
+            double calculatedRisk = 0;
+            
+            calculatedRisk = [self calculateRiskForProbability:precipProbability intensity:precipIntensity staticRisk:staticRisk];
+            
+            maxRisk = MAX(maxRisk,  calculatedRisk);
+        }
     }
     
     double risk = maxRisk * 10.0;
     
     NSInteger index = (NSInteger) risk;
-    UIColor *color = self.riskColors[index];
+    UIColor *color = self.riskColors[MIN(index, self.riskColors.count - 1)];
     self.peg.tintColor = color;
     
     self.pegToBottom.constant = - ((risk / 10.0) * self.view.frame.size.height);
@@ -233,15 +242,22 @@
     CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
     CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
     
-    [[ClimateDownloader instance] downloadLatitude:latitude
-                                         longitude:longitude
-                                          callback:^(NSDictionary *information, NSError *error)
-     {
-         if ( error == nil )
+    if ( self.map.mapType == MKMapTypeSatellite )
+    {
+        [self processWeatherData:nil riskString:riskStr];
+    }
+    else
+    {
+        [[ClimateDownloader instance] downloadLatitude:latitude
+                                             longitude:longitude
+                                              callback:^(NSDictionary *information, NSError *error)
          {
-             [self processWeatherData:information riskString:riskStr];
-         }
-     }];
+             if ( error == nil )
+             {
+                 [self processWeatherData:information riskString:riskStr];
+             }
+         }];
+    }
 }
 
 - (void)shareThis

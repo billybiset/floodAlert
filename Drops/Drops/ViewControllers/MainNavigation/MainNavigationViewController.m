@@ -2,7 +2,7 @@
 #import "MapViewController.h"
 #import "ClimateViewController.h"
 #import "RisksViewController.h"
-
+#import "ResourcesViewController.h"
 #import "UIColor+Drops.h"
 
 @interface MainNavigationViewController ()
@@ -43,7 +43,8 @@
         RisksViewController *risksVc = [[RisksViewController alloc] init];
         risksVc.navigationDelegate = self;
         
-        UIViewController *resourcesVc = [[UIViewController alloc] init];
+        ResourcesViewController *resourcesVc = [[ResourcesViewController alloc] init];
+        resourcesVc.navigationDelegate = self;
         
         self.viewControllers = @[
                                     mapVc,
@@ -79,7 +80,6 @@
     UITabBarItem *climateItem = self.tabBar.items[1];
     UITabBarItem *risksItem = self.tabBar.items[2];
     UITabBarItem *resourcesItem = self.tabBar.items[3];
-    
     
     [mapItem setTitle:NSLocalizedString(@"MAP", )];
     [climateItem setTitle:NSLocalizedString(@"CLIMATE", )];

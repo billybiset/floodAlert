@@ -74,6 +74,26 @@
                         <constraint firstAttribute="bottom" secondItem="Cws-9a-vWH" secondAttribute="bottom" id="q7w-3P-t08"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uv2-7z-Drg">
+                    <rect key="frame" x="8" y="504" width="253" height="155"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cuadrado-mensaje" translatesAutoresizingMaskIntoConstraints="NO" id="Gxi-6F-LvT">
+                            <rect key="frame" x="5" y="8" width="240" height="139"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hacé Zoom para cargar datos!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frf-wr-ufX">
+                            <rect key="frame" x="23" y="27" width="206" height="104"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.0" green="0.19215686274509802" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="155" id="nbe-Wv-zeD"/>
+                    </constraints>
+                </view>
                 <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-Tl-n1a">
                     <rect key="frame" x="24" y="24" width="327" height="619"/>
                     <subviews>
@@ -315,26 +335,6 @@
                         <constraint firstItem="qYT-GU-Tdg" firstAttribute="centerY" secondItem="EvB-VJ-QH9" secondAttribute="centerY" id="tom-q5-aod"/>
                         <constraint firstItem="C1r-6U-oIX" firstAttribute="centerY" secondItem="1K1-og-UKj" secondAttribute="centerY" id="yFl-MY-I10"/>
                         <constraint firstItem="1K1-og-UKj" firstAttribute="top" secondItem="Tta-Mw-dZO" secondAttribute="bottom" constant="48" id="zO5-7w-mCB"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uv2-7z-Drg">
-                    <rect key="frame" x="8" y="504" width="253" height="155"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cuadrado-mensaje" translatesAutoresizingMaskIntoConstraints="NO" id="Gxi-6F-LvT">
-                            <rect key="frame" x="5" y="8" width="240" height="139"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hacé Zoom para cargar datos!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frf-wr-ufX">
-                            <rect key="frame" x="23" y="27" width="206" height="104"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textColor" red="0.0" green="0.19215686274509802" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="155" id="nbe-Wv-zeD"/>
                     </constraints>
                 </view>
             </subviews>

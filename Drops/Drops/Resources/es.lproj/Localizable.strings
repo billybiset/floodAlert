@@ -29,3 +29,5 @@
 "OK" = "Aceptar";
 "RISK FOUND" = "Riesgo";
 "RISK MESSAGE FORMAT" = "El riesgo para esta ubicación es %@ / 10";
+"FEEDBACK" = "Enviar Sugerencias";
+

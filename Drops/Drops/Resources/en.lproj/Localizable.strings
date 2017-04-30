@@ -29,4 +29,5 @@
 "OK" = "Ok";
 "RISK FOUND" = "Risk";
 "RISK MESSAGE FORMAT" = "The risk for this area is %@ / 10";
+"FEEDBACK" = "Send Feedback";
 
