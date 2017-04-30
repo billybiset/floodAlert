@@ -16,8 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResourcesViewController">
             <connections>
+                <outlet property="adviceButton" destination="1t6-CH-i1A" id="YBR-AT-hW4"/>
                 <outlet property="feedbackButton" destination="OGq-p1-4Tk" id="XyW-6y-uBg"/>
-                <outlet property="sourceCodeButton" destination="1t6-CH-i1A" id="FB4-l8-STc"/>
+                <outlet property="sourceCodeButton" destination="ENh-YW-fln" id="i1w-jl-LYc"/>
+                <outlet property="unrcButton" destination="0hU-Pj-ze7" id="4cN-DW-Mvc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -58,31 +60,77 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-CH-i1A">
-                    <rect key="frame" x="16" y="232" width="343" height="51"/>
+                    <rect key="frame" x="16" y="232" width="351" height="51"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="adY-gv-2V9"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                    <state key="normal" title="Source Code"/>
+                    <state key="normal" title="Consejos de Inundación"/>
                     <connections>
-                        <action selector="sourceCodeSelected:" destination="-1" eventType="touchUpInside" id="137-cg-UaQ"/>
+                        <action selector="adviceSelected:" destination="-1" eventType="touchUpInside" id="hJ0-tX-LaO"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hU-Pj-ze7">
+                    <rect key="frame" x="16" y="299" width="351" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="fCq-lU-tg2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                    <state key="normal" title="ProIn @ UNRC"/>
+                    <connections>
+                        <action selector="surDeCba:" destination="-1" eventType="touchUpInside" id="ieM-KU-0uj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENh-YW-fln">
+                    <rect key="frame" x="12" y="366" width="355" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="tpk-cQ-Fxl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                    <state key="normal" title="Source Code"/>
+                    <connections>
+                        <action selector="sourceCodeSelected:" destination="-1" eventType="touchUpInside" id="1S3-Bf-7iY"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ciesin" translatesAutoresizingMaskIntoConstraints="NO" id="lHn-ey-6Za">
+                    <rect key="frame" x="12" y="533" width="355" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="dVL-3p-S9z"/>
+                    </constraints>
+                </imageView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-ciesin" translatesAutoresizingMaskIntoConstraints="NO" id="bzN-yh-QS5">
+                    <rect key="frame" x="12" y="461" width="355" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="aq7-vi-qoM"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="1t6-CH-i1A" secondAttribute="trailing" constant="16" id="2gY-kg-heI"/>
+                <constraint firstAttribute="trailing" secondItem="1t6-CH-i1A" secondAttribute="trailing" constant="8" id="2gY-kg-heI"/>
+                <constraint firstAttribute="trailing" secondItem="lHn-ey-6Za" secondAttribute="trailing" constant="8" id="2xJ-Ee-2d0"/>
+                <constraint firstItem="OGq-p1-4Tk" firstAttribute="top" secondItem="lHn-ey-6Za" secondAttribute="bottom" constant="8" id="3EJ-Nw-wam"/>
                 <constraint firstItem="BkX-4o-Tb6" firstAttribute="height" secondItem="QPK-Wb-n9L" secondAttribute="height" id="3Gy-RH-aOc"/>
                 <constraint firstItem="OGq-p1-4Tk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Pj-Zm-OLI"/>
+                <constraint firstItem="0hU-Pj-ze7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="EZ4-HE-Yn3"/>
+                <constraint firstItem="ENh-YW-fln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="GQE-Vt-bvl"/>
+                <constraint firstItem="ENh-YW-fln" firstAttribute="top" secondItem="0hU-Pj-ze7" secondAttribute="bottom" constant="16" id="IWq-Zn-fhi"/>
                 <constraint firstItem="QPK-Wb-n9L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="MxX-df-B0E"/>
                 <constraint firstAttribute="trailing" secondItem="BkX-4o-Tb6" secondAttribute="trailing" constant="16" id="OCw-0I-tdC"/>
+                <constraint firstAttribute="trailing" secondItem="bzN-yh-QS5" secondAttribute="trailing" constant="8" id="QJE-Gj-rqQ"/>
                 <constraint firstItem="BkX-4o-Tb6" firstAttribute="width" secondItem="QPK-Wb-n9L" secondAttribute="width" constant="23" id="QuC-TK-qV3"/>
                 <constraint firstItem="gnI-Ap-2RQ" firstAttribute="top" secondItem="QPK-Wb-n9L" secondAttribute="bottom" constant="24" id="SKI-gW-5sG"/>
                 <constraint firstItem="BkX-4o-Tb6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="SSU-6U-ObI"/>
                 <constraint firstItem="1t6-CH-i1A" firstAttribute="top" secondItem="gnI-Ap-2RQ" secondAttribute="bottom" constant="26" id="WoI-oe-36D"/>
+                <constraint firstItem="0hU-Pj-ze7" firstAttribute="top" secondItem="1t6-CH-i1A" secondAttribute="bottom" constant="16" id="YPf-7S-GCx"/>
+                <constraint firstAttribute="trailing" secondItem="0hU-Pj-ze7" secondAttribute="trailing" constant="8" id="YeH-Q3-fRi"/>
+                <constraint firstItem="lHn-ey-6Za" firstAttribute="top" secondItem="bzN-yh-QS5" secondAttribute="bottom" constant="8" id="a3K-T1-WDw"/>
+                <constraint firstAttribute="trailing" secondItem="ENh-YW-fln" secondAttribute="trailing" constant="8" id="iJZ-ze-cFb"/>
+                <constraint firstItem="bzN-yh-QS5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="ibN-h0-mNp"/>
                 <constraint firstAttribute="bottom" secondItem="OGq-p1-4Tk" secondAttribute="bottom" constant="20" id="iwT-FT-HWf"/>
                 <constraint firstItem="QPK-Wb-n9L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="jKk-FH-A4R"/>
                 <constraint firstAttribute="trailing" secondItem="gnI-Ap-2RQ" secondAttribute="trailing" constant="16" id="lqP-Iv-HqN"/>
+                <constraint firstItem="lHn-ey-6Za" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="pdu-Tx-b8q"/>
                 <constraint firstItem="gnI-Ap-2RQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tzi-dw-3XV"/>
                 <constraint firstItem="1t6-CH-i1A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vf2-Nr-WEO"/>
             </constraints>
@@ -92,6 +140,7 @@
     </objects>
     <resources>
         <image name="logo-azul-1" width="91" height="91"/>
+        <image name="logo-ciesin" width="136" height="26"/>
         <image name="logo-nasa-redondo-1" width="108" height="90"/>
     </resources>
 </document>

@@ -15,6 +15,9 @@
 @interface ResourcesViewController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic) IBOutlet UIButton *feedbackButton;
+
+@property (nonatomic) IBOutlet UIButton *adviceButton;
+@property (nonatomic) IBOutlet UIButton *unrcButton;
 @property (nonatomic) IBOutlet UIButton *sourceCodeButton;
 
 @end
@@ -28,6 +31,8 @@
     self.title = NSLocalizedString(@"RESOURCES", );
     
     [UIHelper configureSecondaryButton:self.sourceCodeButton];
+    [UIHelper configureSecondaryButton:self.unrcButton];
+    [UIHelper configureSecondaryButton:self.adviceButton];
     
     [UIHelper configureButton:self.feedbackButton];
     [self.feedbackButton setTitle:NSLocalizedString(@"FEEDBACK", ) forState:UIControlStateNormal];
@@ -61,12 +66,31 @@
         
         [self.navigationDelegate.mainNavigationController presentViewController:mailCompose animated:YES completion:nil];
     }
-
 }
 
 - (IBAction)sourceCodeSelected:(id)sender
 {
     NSString *codeWeb = @"https://github.com/billybiset/floodAlert";
+    
+    WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.webURL = codeWeb;
+    
+    [self.navigationDelegate.mainNavigationController pushViewController:webVC animated:YES];
+}
+
+- (IBAction)surDeCba:(id)sender
+{
+    NSString *codeWeb = @"http://www.proin-unrc.com.ar/";
+    
+    WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.webURL = codeWeb;
+    
+    [self.navigationDelegate.mainNavigationController pushViewController:webVC animated:YES];
+}
+
+- (IBAction)adviceSelected:(id)sender
+{
+    NSString *codeWeb = @"https://www.ready.gov/es/inundaciones";
     
     WebViewController *webVC = [[WebViewController alloc] init];
     webVC.webURL = codeWeb;

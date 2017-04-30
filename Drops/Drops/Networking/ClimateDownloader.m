@@ -44,7 +44,7 @@
 - (NSString *)urlStringForLatitude:(CLLocationDegrees)latitude
                          longitude:(CLLocationDegrees)longitude
 {
-    NSString *apiKey = @"8bf9a10a059e8fe6575ea44ab42dfc31";
+    NSString *apiKey = @"5f099ec432cfe5c53e389e5d863f8e2d";
     NSString *locationString = [NSString stringWithFormat:@"%f,%f",latitude,longitude];
     
     return [NSString stringWithFormat:@"https://api.darksky.net/forecast/%@/%@",
