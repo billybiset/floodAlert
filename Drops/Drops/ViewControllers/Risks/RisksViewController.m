@@ -13,15 +13,25 @@
 @interface RisksViewController () <MKMapViewDelegate>
 
 @property (nonatomic) NSOperationQueue *processingQueue;
+
 @property (nonatomic) IBOutlet UISegmentedControl *mapTypeSegmentedControl;
+@property (nonatomic) IBOutlet UILabel *mapSelectLabel;
+@property (nonatomic) IBOutlet UIView *mapTypeView;
+@property (nonatomic) IBOutlet UIView *messageView;
+@property (nonatomic) IBOutlet UIButton *calculateRiskButton;
+@property (nonatomic) IBOutlet UIImageView *warningImageView;
 
 @property (nonatomic) IBOutlet MKMapView *map;
+@property (nonatomic) IBOutlet UIImageView *peg;
+@property (nonatomic) IBOutlet NSLayoutConstraint *pegToBottom;
 
 @property (nonatomic) KMLParser *kmlParser;
 
 @property (nonatomic) NSArray *placemarkNames;
 
 @property (nonatomic) NSArray *riskColors;
+
+@property (nonatomic) BOOL shouldShare;
 
 @end
 
@@ -41,6 +51,12 @@
     {
         [self processFile:url];
     }
+    
+    UIImage *pegImage = self.peg.image;
+    UIImage *paintableImage = [pegImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.peg.image = paintableImage;
+    
+    [UIHelper configureDestructiveButton:self.calculateRiskButton];
 }
 
 - (NSArray *)riskColors
@@ -68,6 +84,8 @@
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"STANDARD", ) forSegmentAtIndex:0];
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"SATELLITE", ) forSegmentAtIndex:1];
     [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"HYBRID", ) forSegmentAtIndex:2];
+    self.mapSelectLabel.text = NSLocalizedString(@"SELECTION PROMPT", );
+    [self.calculateRiskButton setTitle:NSLocalizedString(@"CALCULATE RISK", ) forState:UIControlStateNormal];
 }
 
 - (void)processFile:(NSURL *)fileURL
@@ -113,10 +131,18 @@
 
 #pragma mark MKMapViewDelegate
 
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    self.peg.hidden = YES;
+    self.mapTypeView.hidden = NO;
+    [self.calculateRiskButton setTitle:NSLocalizedString(@"CALCULATE RISK", ) forState:UIControlStateNormal];
+    [UIHelper configureDestructiveButton:self.calculateRiskButton];
+    self.shouldShare = NO;
+    self.warningImageView.image = [UIImage imageNamed:@"warning-red"];
+}
+
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
 {
-    NSLog(@"Class is %@", NSStringFromClass([overlay class]));
-    
     if ( [overlay isKindOfClass:[MKPolygon class]] )
     {
 
@@ -126,7 +152,7 @@
         UIColor *color = self.riskColors[riskNumber];
         
         MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:(MKPolygon *)overlay];
-        polygonRenderer.fillColor = [color colorWithAlphaComponent:0.6];
+        polygonRenderer.fillColor = [color colorWithAlphaComponent:0.4];
         polygonRenderer.strokeColor = color;
         polygonRenderer.lineWidth = 2.0;
         
@@ -139,26 +165,6 @@
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     return [self.kmlParser viewForAnnotation:annotation];
-}
-
-- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
-{
-    NSInteger index = 0;
-    for ( MKPolygon *polygon in self.map.overlays )
-    {
-        MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
-        
-        MKMapPoint mapPoint = MKMapPointForCoordinate(self.map.centerCoordinate);
-        MKMapPoint currentMapPoint = mapPoint;
-        CGPoint polygonViewPoint = [polygonRenderer pointForMapPoint:currentMapPoint];
-        
-        if ( CGPathContainsPoint(polygonRenderer.path, nil, polygonViewPoint, true) )
-        {
-            NSLog(@"Inside Risk: %@", self.placemarkNames[index]);
-            
-        }
-        ++index;
-    }
 }
 
 - (IBAction)mapTypeChanged:(UISegmentedControl *)segmentedControl
@@ -174,6 +180,83 @@
         default:
             self.map.mapType = MKMapTypeHybrid;
             break;
+    }
+}
+
+- (void)foundRisk:(NSString *)riskStr
+{
+    NSInteger index = [riskStr integerValue];
+    UIColor *color = self.riskColors[index];
+    self.peg.tintColor = color;
+    
+    float risk = [riskStr floatValue];
+    
+    self.pegToBottom.constant = - ((risk / 10.0) * self.view.frame.size.height);
+    self.peg.hidden = NO;
+    self.mapTypeView.hidden = YES;
+    
+    [self.calculateRiskButton setTitle:NSLocalizedString(@"SHARE", ) forState:UIControlStateNormal];
+    [UIHelper configureButton:self.calculateRiskButton];
+    self.shouldShare = YES;
+    self.warningImageView.image = [UIImage imageNamed:@"compartir-1"];
+    
+    [self.view layoutIfNeeded];
+}
+
+- (void)shareThis
+{
+    self.messageView.hidden = YES;
+    
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0f);
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    UIImage *snapshotImageFromMyView = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSArray *items = @[snapshotImageFromMyView];
+    
+    UIActivityViewController *controller = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+    
+    [self.navigationDelegate.mainNavigationController presentViewController:controller
+                                                                   animated:YES
+                                                                 completion:^
+     {
+         self.messageView.hidden = NO;
+     }];
+}
+
+- (IBAction)calculateRisk:(id)sender
+{
+    if ( self.shouldShare )
+    {
+        [self shareThis];
+        return;
+    }
+    
+    NSInteger index = 0;
+    BOOL foundRisk = NO;
+    for ( MKPolygon *polygon in self.map.overlays )
+    {
+        MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc] initWithPolygon:polygon];
+        
+        MKMapPoint mapPoint = MKMapPointForCoordinate(self.map.centerCoordinate);
+        MKMapPoint currentMapPoint = mapPoint;
+        CGPoint polygonViewPoint = [polygonRenderer pointForMapPoint:currentMapPoint];
+        
+        if ( CGPathContainsPoint(polygonRenderer.path, nil, polygonViewPoint, true) )
+        {
+            foundRisk = YES;
+            
+            [self foundRisk:self.placemarkNames[index]];
+        }
+        ++index;
+    }
+    
+    if ( ! foundRisk )
+    {
+        [UIHelper showAlertWithTitle:NSLocalizedString(@"NO RISK FOUND", )
+                             message:NSLocalizedString(@"NO RISK MESSAGE", )
+                   cancelButtonTitle:NSLocalizedString(@"OK", )
+                    inViewController:self.navigationDelegate.mainNavigationController];
     }
 }
 

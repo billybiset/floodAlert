@@ -22,3 +22,10 @@
 "SHARE" = "Compartir";
 "CLIMATE" = "Clima";
 "RISK" = "Riesgo";
+"SELECTION PROMPT" = "Elija tipo de mapa";
+"CALCULATE RISK" = "Calcular Riesgo Aquí";
+"NO RISK FOUND" = "Riesgo Desconocido";
+"NO RISK MESSAGE" = "No hay suficientes datos para calcular riesgo aquí.";
+"OK" = "Aceptar";
+"RISK FOUND" = "Riesgo";
+"RISK MESSAGE FORMAT" = "El riesgo para esta ubicación es %@ / 10";

@@ -22,3 +22,11 @@
 "SHARE" = "Share";
 "CLIMATE" = "Weather";
 "RISK" = "Risk";
+"SELECTION PROMPT" = "Please select map type";
+"CALCULATE RISK" = "Calculate Risk Here";
+"NO RISK FOUND" = "Unknown Risk";
+"NO RISK MESSAGE" = "There is insufficient data to calculate risk in this location";
+"OK" = "Ok";
+"RISK FOUND" = "Risk";
+"RISK MESSAGE FORMAT" = "The risk for this area is %@ / 10";
+
