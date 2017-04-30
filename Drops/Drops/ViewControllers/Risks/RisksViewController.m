@@ -187,7 +187,22 @@
 {
     double normalizacionMilimetros = (precipIntensity * 25.4) / 100.0;
     double normalizacionInundabilidad = staticRisk / 10.0;
-    double result = (pow(normalizacionInundabilidad, 2.0) * 0.4 ) + ( 0.6 * sqrt(normalizacionMilimetros));
+    
+    double weightFlood = 0.4;
+    double weightPrecip = 0.6;
+    
+    if ( normalizacionMilimetros > 0.4 )
+    {
+        if ( staticRisk < 3 )
+        {
+            weightFlood = 0.6;
+            weightPrecip = 0.4;
+        }
+        
+    }
+    
+    
+    double result = (pow(normalizacionInundabilidad, 2.0) * weightFlood ) + ( weightPrecip * sqrt(normalizacionMilimetros));
     
     return MAX(0.0, MIN(1.0, result));
 }

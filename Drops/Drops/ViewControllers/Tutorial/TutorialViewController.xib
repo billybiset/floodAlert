@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialViewController">
             <connections>
-                <outlet property="doneButton" destination="rHd-pY-etp" id="TM3-ZU-roq"/>
+                <outlet property="doneButton" destination="rHd-pY-etp" id="8tO-UX-rry"/>
                 <outlet property="pageControl" destination="2Zs-aq-Xx9" id="I2g-Le-6oT"/>
                 <outlet property="screen1BuiltByConstraint" destination="4SA-9U-Pj8" id="M2Z-w3-j4c"/>
                 <outlet property="screen1BuiltByLabel" destination="CsG-02-Alx" id="g2k-pm-en7"/>
@@ -26,6 +26,7 @@
                 <outlet property="screen4TextView" destination="bUK-23-eCF" id="GRb-hX-hmo"/>
                 <outlet property="scrollView" destination="2q3-t8-NID" id="Mjw-a7-QhH"/>
                 <outlet property="skipButton" destination="IER-pr-Vc1" id="Azl-Vp-2en"/>
+                <outlet property="startButton" destination="aZp-7u-TcP" id="53s-UY-zy0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Ge4-HN-4hJ"/>
                 <outletCollection property="pageViews" destination="uwU-XB-lEd" id="7R7-jP-tT4"/>
                 <outletCollection property="pageViews" destination="3bs-ae-Hh5" id="Yei-yc-ICc"/>
@@ -52,8 +53,39 @@
                                     <rect key="frame" x="-111" y="0.0" width="1850" height="667"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IER-pr-Vc1">
+                                    <rect key="frame" x="8" y="8" width="75" height="34"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="FBr-Ve-d1d"/>
+                                        <constraint firstAttribute="width" constant="75" id="FUG-Jq-GVs"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                                    <state key="normal" title="Skip"/>
+                                    <connections>
+                                        <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="Z68-Cg-b45"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHd-pY-etp">
+                                    <rect key="frame" x="97.5" y="16" width="180" height="45"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="6Ya-SX-01y"/>
+                                        <constraint firstAttribute="width" constant="180" id="CKZ-Cn-0ix"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                                    <state key="normal" title="Comenzar"/>
+                                    <connections>
+                                        <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="AFk-sE-JXU"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="rHd-pY-etp" firstAttribute="top" secondItem="uwU-XB-lEd" secondAttribute="top" constant="16" id="0g6-7D-jkI"/>
+                                <constraint firstAttribute="trailing" secondItem="IER-pr-Vc1" secondAttribute="trailing" constant="292" id="Efa-qc-dQZ"/>
+                                <constraint firstItem="IER-pr-Vc1" firstAttribute="top" secondItem="uwU-XB-lEd" secondAttribute="top" constant="8" id="JEx-9I-WBT"/>
+                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bs-ae-Hh5" userLabel="Second">
                             <rect key="frame" x="375" y="0.0" width="375" height="667"/>
@@ -87,6 +119,7 @@
                         <constraint firstItem="3bs-ae-Hh5" firstAttribute="width" secondItem="uwU-XB-lEd" secondAttribute="width" id="QQw-In-JHt"/>
                         <constraint firstItem="uwU-XB-lEd" firstAttribute="leading" secondItem="2q3-t8-NID" secondAttribute="leading" id="QwE-6q-CuP"/>
                         <constraint firstItem="1cG-w7-TeX" firstAttribute="top" secondItem="weo-uw-7ix" secondAttribute="top" id="SLI-Ee-fMf"/>
+                        <constraint firstItem="rHd-pY-etp" firstAttribute="centerX" secondItem="2q3-t8-NID" secondAttribute="centerX" id="WEH-4J-vx8"/>
                         <constraint firstItem="uWL-M7-B0b" firstAttribute="top" secondItem="3bs-ae-Hh5" secondAttribute="top" id="ZWG-YG-5Z0"/>
                         <constraint firstItem="weo-uw-7ix" firstAttribute="width" secondItem="uWL-M7-B0b" secondAttribute="width" id="ZxP-EG-l0c"/>
                         <constraint firstItem="uWL-M7-B0b" firstAttribute="width" secondItem="3bs-ae-Hh5" secondAttribute="width" id="l23-jN-qbt"/>
@@ -96,6 +129,9 @@
                         <constraint firstItem="uwU-XB-lEd" firstAttribute="centerY" secondItem="2q3-t8-NID" secondAttribute="centerY" id="vnf-Nv-rZ5"/>
                         <constraint firstItem="1cG-w7-TeX" firstAttribute="height" secondItem="weo-uw-7ix" secondAttribute="height" id="zqA-2E-PpF"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="KC4-3f-SYz"/>
+                    </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Zs-aq-Xx9">
                     <rect key="frame" x="137.5" y="0.0" width="100" height="37"/>
@@ -106,32 +142,6 @@
                         <action selector="pageControlChangedPage:" destination="-1" eventType="valueChanged" id="VTu-TD-TKV"/>
                     </connections>
                 </pageControl>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHd-pY-etp">
-                    <rect key="frame" x="292" y="8" width="75" height="34"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="6Ya-SX-01y"/>
-                        <constraint firstAttribute="width" constant="75" id="CKZ-Cn-0ix"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                    <state key="normal" title="Listo"/>
-                    <connections>
-                        <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="AFk-sE-JXU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IER-pr-Vc1">
-                    <rect key="frame" x="292" y="8" width="75" height="34"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="34" id="FBr-Ve-d1d"/>
-                        <constraint firstAttribute="width" constant="75" id="FUG-Jq-GVs"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                    <state key="normal" title="Skip"/>
-                    <connections>
-                        <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="Z68-Cg-b45"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -139,12 +149,8 @@
                 <constraint firstItem="2q3-t8-NID" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4lD-HU-AYv"/>
                 <constraint firstAttribute="bottom" secondItem="2q3-t8-NID" secondAttribute="bottom" id="8fd-id-SjA"/>
                 <constraint firstItem="2Zs-aq-Xx9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ALh-Bz-Ze0"/>
-                <constraint firstAttribute="trailing" secondItem="IER-pr-Vc1" secondAttribute="trailing" constant="8" id="RR2-gS-FOX"/>
-                <constraint firstItem="rHd-pY-etp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="VBC-8e-zAG"/>
                 <constraint firstAttribute="trailing" secondItem="2q3-t8-NID" secondAttribute="trailing" id="aFB-A0-BMg"/>
                 <constraint firstItem="2q3-t8-NID" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bL3-Zv-u6V"/>
-                <constraint firstItem="IER-pr-Vc1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="cMn-xu-Sab"/>
-                <constraint firstAttribute="trailing" secondItem="rHd-pY-etp" secondAttribute="trailing" constant="8" id="g9X-jM-Fst"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -180,15 +186,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-4g-uPl">
-                    <rect key="frame" x="11" y="56" width="352" height="150"/>
+                    <rect key="frame" x="11" y="56" width="352" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="bjQ-wj-ci8"/>
+                        <constraint firstAttribute="height" constant="200" id="bjQ-wj-ci8"/>
                     </constraints>
-                    <string key="text">Welcome to Flood Alert! 
+                    <string key="text">Bienvenido a Flood Alert! 
 
-This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NASA's Space App Challenge 2017.</string>
+Esta aplicación fue desarrollada para abordar el desafío "Water, Water, Everywhere!" como parte del NASA Space App Challenge 2017.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
@@ -213,14 +219,16 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
-                    <rect key="frame" x="16" y="56" width="351" height="150"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
+                    <rect key="frame" x="16" y="56" width="351" height="200"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="150" id="xaJ-Me-0I6"/>
+                        <constraint firstAttribute="height" constant="200" id="xaJ-Me-0I6"/>
                     </constraints>
-                    <string key="text">The team that built this app is multi disciplinary and is composed of Two Agronomical Engineer, Three Programmers and One Graphic Designer.</string>
+                    <string key="text">El equipo que desarrolló esta aplicación se compone de Dos Ingenieros Agrónomos, Tres Programadores y una Diseñadora Gráfica.
+
+Cada uno aportando una perspectiva única al problema.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
@@ -239,20 +247,22 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
-                    <rect key="frame" x="20" y="33" width="334" height="142"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
+                    <rect key="frame" x="20" y="56" width="334" height="240"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="142" id="5fJ-7h-joX"/>
+                        <constraint firstAttribute="height" constant="240" id="5fJ-7h-joX"/>
                     </constraints>
-                    <string key="text">The goal of the app is to educate users about ongoing floods in the area and calculate a simple risk percentage. You'll find more information within the app itself.</string>
+                    <string key="text">El objetivo de esta aplicación es el de permitir a la gente evaluar y entender el riesgo de inundación en una zona de su interés.
+
+Este riesgo es presentado de una forma intuitiva y práctica, con base científica simple.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="OIb-1h-zTy" firstAttribute="top" secondItem="n6n-kC-raf" secondAttribute="top" constant="33" id="Bzk-uO-A4V"/>
+                <constraint firstItem="OIb-1h-zTy" firstAttribute="top" secondItem="n6n-kC-raf" secondAttribute="top" constant="56" id="Bzk-uO-A4V"/>
                 <constraint firstItem="OIb-1h-zTy" firstAttribute="leading" secondItem="n6n-kC-raf" secondAttribute="leading" constant="20" id="SGv-FR-Kcq"/>
                 <constraint firstAttribute="trailing" secondItem="OIb-1h-zTy" secondAttribute="trailing" constant="21" id="fcF-qu-dMq"/>
             </constraints>
@@ -265,19 +275,35 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please grant permission to the app so we can map your location while you are using it." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
                     <rect key="frame" x="8" y="56" width="359" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="MSJ-a6-Gqc"/>
                     </constraints>
+                    <string key="text">Permití a la aplicación leer tu ubicación para analizar riesgos cerca tuyo y si encontrás riesgos, compartilos con tu comunidad para evitar problemas.</string>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZp-7u-TcP">
+                    <rect key="frame" x="97" y="237" width="180" height="45"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="9Ty-z8-5R4"/>
+                        <constraint firstAttribute="width" constant="180" id="HXd-M5-O23"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
+                    <state key="normal" title="Comenzar"/>
+                    <connections>
+                        <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="yyr-dV-LEN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.57285022735595703" blue="0.8208773136138916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="aZp-7u-TcP" firstAttribute="centerX" secondItem="QPt-V5-cu5" secondAttribute="centerX" id="9cC-Gg-ago"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="top" secondItem="QPt-V5-cu5" secondAttribute="top" constant="56" id="DAv-xT-480"/>
+                <constraint firstItem="aZp-7u-TcP" firstAttribute="top" secondItem="bUK-23-eCF" secondAttribute="bottom" constant="41" id="Dnv-Fo-xf7"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="8" id="F9F-f0-4Si"/>
                 <constraint firstItem="bUK-23-eCF" firstAttribute="leading" secondItem="QPt-V5-cu5" secondAttribute="leading" constant="61" id="Jxc-2g-CWO"/>
                 <constraint firstAttribute="trailing" secondItem="bUK-23-eCF" secondAttribute="trailing" constant="68" id="ang-Ji-f8U"/>

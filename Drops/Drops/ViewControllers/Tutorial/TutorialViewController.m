@@ -11,6 +11,7 @@
 
 @property (nonatomic) IBOutlet UIButton *skipButton;
 @property (nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic) IBOutlet UIButton *startButton;
 @property (nonatomic) BOOL animatingScrollView;
 
 @property (nonatomic) IBOutletCollection(UIView) NSArray *specificPageViews;
@@ -58,6 +59,7 @@
         view.backgroundColor = [UIColor clearColor];
     }
     
+    [UIHelper configureButton:self.startButton withColor:[UIColor colorWithHex:@"003154"]];
     [self configureGradient];
 }
 
@@ -166,6 +168,7 @@
 
 - (void)fixTextViewFontSize:(UITextView *)textView
 {
+    /*
     CGSize desiredSize = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, self.view.frame.size.height)];
     UIFont *font = textView.font;
     
@@ -175,6 +178,7 @@
         font = textView.font;
         desiredSize = [textView sizeThatFits:CGSizeMake(textView.frame.size.width, self.view.frame.size.height)];
     }
+     */
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -218,13 +222,25 @@
     
     self.pageControl.currentPage = page;
     [self updateSkipAndDoneButtons];
+    
+    BOOL goingToLastPage = page == self.pageViews.count - 1;
+    if ( goingToLastPage )
+    {
+        [self performSelector:@selector(showStart:) withObject:nil afterDelay:0.35];
+    }
+}
+
+- (void)showStart:(id)sender
+{
+    [UIView animateWithDuration:0.25 animations:^
+     {
+         self.startButton.alpha = 1.0;
+     }];
 }
 
 - (void)updateSkipAndDoneButtons
 {
-    BOOL goingToLastPage = self.pageControl.currentPage == self.pageViews.count - 1;
-    self.skipButton.hidden = goingToLastPage;
-    self.doneButton.hidden = !goingToLastPage;
+
 }
 
 #pragma mark - UIPageControl Handling
