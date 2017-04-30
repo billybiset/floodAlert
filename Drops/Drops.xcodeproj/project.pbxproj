@@ -75,7 +75,7 @@
 		287E49361EB661C40062CB5A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		287E49371EB661C40062CB5A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		287E49381EB661C40062CB5A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		2899116D1EABFC7A0098B4E2 /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2899116D1EABFC7A0098B4E2 /* Flood Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flood Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		289911711EABFC7A0098B4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		289911731EABFC7A0098B4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		289911741EABFC7A0098B4E2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		2899116E1EABFC7A0098B4E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2899116D1EABFC7A0098B4E2 /* Drops.app */,
+				2899116D1EABFC7A0098B4E2 /* Flood Alert.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			);
 			name = Drops;
 			productName = Drops;
-			productReference = 2899116D1EABFC7A0098B4E2 /* Drops.app */;
+			productReference = 2899116D1EABFC7A0098B4E2 /* Flood Alert.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -641,7 +641,7 @@
 				INFOPLIST_FILE = Drops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grafo.Drops;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Flood Alert";
 			};
 			name = Debug;
 		};
@@ -654,7 +654,7 @@
 				INFOPLIST_FILE = Drops/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grafo.Drops;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Flood Alert";
 			};
 			name = Release;
 		};

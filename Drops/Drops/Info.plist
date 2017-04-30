@@ -55,6 +55,11 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModeTrain</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please share your location to track floods around you.</string>
 	<key>UIAppFonts</key>

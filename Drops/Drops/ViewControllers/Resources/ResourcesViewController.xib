@@ -60,7 +60,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-CH-i1A">
-                    <rect key="frame" x="16" y="232" width="351" height="51"/>
+                    <rect key="frame" x="8" y="232" width="359" height="51"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="adY-gv-2V9"/>
                     </constraints>
@@ -71,7 +71,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hU-Pj-ze7">
-                    <rect key="frame" x="16" y="299" width="351" height="51"/>
+                    <rect key="frame" x="8" y="299" width="359" height="51"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="fCq-lU-tg2"/>
                     </constraints>
@@ -112,7 +112,7 @@
                 <constraint firstItem="OGq-p1-4Tk" firstAttribute="top" secondItem="lHn-ey-6Za" secondAttribute="bottom" constant="8" id="3EJ-Nw-wam"/>
                 <constraint firstItem="BkX-4o-Tb6" firstAttribute="height" secondItem="QPK-Wb-n9L" secondAttribute="height" id="3Gy-RH-aOc"/>
                 <constraint firstItem="OGq-p1-4Tk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Pj-Zm-OLI"/>
-                <constraint firstItem="0hU-Pj-ze7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="EZ4-HE-Yn3"/>
+                <constraint firstItem="0hU-Pj-ze7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="EZ4-HE-Yn3"/>
                 <constraint firstItem="ENh-YW-fln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="GQE-Vt-bvl"/>
                 <constraint firstItem="ENh-YW-fln" firstAttribute="top" secondItem="0hU-Pj-ze7" secondAttribute="bottom" constant="16" id="IWq-Zn-fhi"/>
                 <constraint firstItem="QPK-Wb-n9L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="MxX-df-B0E"/>
@@ -132,7 +132,7 @@
                 <constraint firstAttribute="trailing" secondItem="gnI-Ap-2RQ" secondAttribute="trailing" constant="16" id="lqP-Iv-HqN"/>
                 <constraint firstItem="lHn-ey-6Za" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="pdu-Tx-b8q"/>
                 <constraint firstItem="gnI-Ap-2RQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="tzi-dw-3XV"/>
-                <constraint firstItem="1t6-CH-i1A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vf2-Nr-WEO"/>
+                <constraint firstItem="1t6-CH-i1A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="vf2-Nr-WEO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="33.5" y="78.5"/>

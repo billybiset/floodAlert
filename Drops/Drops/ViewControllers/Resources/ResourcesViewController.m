@@ -80,7 +80,7 @@
 
 - (IBAction)surDeCba:(id)sender
 {
-    NSString *codeWeb = @"http://www.proin-unrc.com.ar/";
+    NSString *codeWeb = @"http://www.proin-unrc.com.ar";
     
     WebViewController *webVC = [[WebViewController alloc] init];
     webVC.webURL = codeWeb;

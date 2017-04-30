@@ -52,7 +52,7 @@
                             <rect key="frame" x="5" y="8" width="240" height="139"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Hacé Zoom para cargar datos!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="frf-wr-ufX">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Hacé Zoom para cargar datos!" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frf-wr-ufX">
                             <rect key="frame" x="23" y="27" width="206" height="104"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

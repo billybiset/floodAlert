@@ -114,7 +114,7 @@
                         <constraint firstAttribute="width" constant="75" id="CKZ-Cn-0ix"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                    <state key="normal" title="Done"/>
+                    <state key="normal" title="Listo"/>
                     <connections>
                         <action selector="moveOn:" destination="-1" eventType="touchUpInside" id="AFk-sE-JXU"/>
                     </connections>
@@ -179,7 +179,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-4g-uPl">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-4g-uPl">
                     <rect key="frame" x="11" y="56" width="352" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="bjQ-wj-ci8"/>
@@ -213,7 +213,7 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-AL-pUZ">
                     <rect key="frame" x="16" y="56" width="351" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="xaJ-Me-0I6"/>
@@ -239,7 +239,7 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIb-1h-zTy">
                     <rect key="frame" x="20" y="33" width="334" height="142"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="142" id="5fJ-7h-joX"/>
@@ -265,7 +265,7 @@ This app is an attempt to tackle the "Water, Water, Everywhere!" challenge of NA
             <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please grant permission to the app so we can map your location while you are using it." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please grant permission to the app so we can map your location while you are using it." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUK-23-eCF">
                     <rect key="frame" x="8" y="56" width="359" height="140"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="140" id="MSJ-a6-Gqc"/>
