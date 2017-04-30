@@ -13,7 +13,8 @@
 		2801F8F21EB50CDB004B40B4 /* ClimateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F01EB50CDB004B40B4 /* ClimateViewController.xib */; };
 		2801F8F91EB51CDD004B40B4 /* RisksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2801F8F71EB51CDD004B40B4 /* RisksViewController.m */; };
 		2801F8FA1EB51CDD004B40B4 /* RisksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */; };
-		287E49281EB562020062CB5A /* doc.kml in Resources */ = {isa = PBXBuildFile; fileRef = 287E49271EB562020062CB5A /* doc.kml */; };
+		287E492B1EB62F240062CB5A /* economico.kml in Resources */ = {isa = PBXBuildFile; fileRef = 287E49291EB62F240062CB5A /* economico.kml */; };
+		287E492C1EB62F240062CB5A /* inundacion.kml in Resources */ = {isa = PBXBuildFile; fileRef = 287E492A1EB62F240062CB5A /* inundacion.kml */; };
 		289911721EABFC7A0098B4E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911711EABFC7A0098B4E2 /* main.m */; };
 		289911751EABFC7A0098B4E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 289911741EABFC7A0098B4E2 /* AppDelegate.m */; };
 		2899117D1EABFC7A0098B4E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2899117C1EABFC7A0098B4E2 /* Assets.xcassets */; };
@@ -62,7 +63,8 @@
 		2801F8F61EB51CDD004B40B4 /* RisksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RisksViewController.h; sourceTree = "<group>"; };
 		2801F8F71EB51CDD004B40B4 /* RisksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RisksViewController.m; sourceTree = "<group>"; };
 		2801F8F81EB51CDD004B40B4 /* RisksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RisksViewController.xib; sourceTree = "<group>"; };
-		287E49271EB562020062CB5A /* doc.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = doc.kml; sourceTree = "<group>"; };
+		287E49291EB62F240062CB5A /* economico.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = economico.kml; sourceTree = "<group>"; };
+		287E492A1EB62F240062CB5A /* inundacion.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = inundacion.kml; sourceTree = "<group>"; };
 		2899116D1EABFC7A0098B4E2 /* Drops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289911711EABFC7A0098B4E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		289911731EABFC7A0098B4E2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -205,7 +207,8 @@
 		289911881EABFFBA0098B4E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				287E49271EB562020062CB5A /* doc.kml */,
+				287E49291EB62F240062CB5A /* economico.kml */,
+				287E492A1EB62F240062CB5A /* inundacion.kml */,
 				289911891EABFFBA0098B4E2 /* Fonts */,
 				28F9C83E1EB2BF8900EEF203 /* Localizable.strings */,
 			);
@@ -398,11 +401,12 @@
 				289911A51EABFFBA0098B4E2 /* Lato-Light.ttf in Resources */,
 				2899119C1EABFFBA0098B4E2 /* Lato-Black.ttf in Resources */,
 				2899119E1EABFFBA0098B4E2 /* Lato-Bold.ttf in Resources */,
-				287E49281EB562020062CB5A /* doc.kml in Resources */,
+				287E492C1EB62F240062CB5A /* inundacion.kml in Resources */,
 				289911A81EABFFBA0098B4E2 /* Lato-MediumItalic.ttf in Resources */,
 				289911AB1EABFFBA0098B4E2 /* Lato-SemiboldItalic.ttf in Resources */,
 				2899119D1EABFFBA0098B4E2 /* Lato-BlackItalic.ttf in Resources */,
 				289911A31EABFFBA0098B4E2 /* Lato-HeavyItalic.ttf in Resources */,
+				287E492B1EB62F240062CB5A /* economico.kml in Resources */,
 				2801F8E01EB4E528004B40B4 /* LaunchScreen.storyboard in Resources */,
 				28F9C83C1EB2BF8900EEF203 /* Localizable.strings in Resources */,
 				2801F8F21EB50CDB004B40B4 /* ClimateViewController.xib in Resources */,

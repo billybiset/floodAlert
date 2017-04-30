@@ -16,9 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClimateViewController">
             <connections>
-                <outlet property="instructionsTextView" destination="jak-dz-K9v" id="0Fb-o6-rXT"/>
+                <outlet property="locationLabel" destination="BS3-ue-MXL" id="BX7-1r-dCe"/>
                 <outlet property="map" destination="fmL-NI-hbt" id="yTa-qw-eK9"/>
-                <outlet property="precipiationIntensityLabel" destination="BS3-ue-MXL" id="qRl-rQ-uvy"/>
+                <outlet property="precipiationLabel" destination="Lqt-g9-ycb" id="QD7-AP-Jrq"/>
+                <outlet property="temperatureLabel" destination="XqZ-O3-EPT" id="dGs-pE-aI4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,47 +31,82 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eZU-iN-pm3">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmL-NI-hbt">
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fmL-NI-hbt">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         </mapView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuadrado-mensaje" translatesAutoresizingMaskIntoConstraints="NO" id="Idu-Db-ZBo">
-                            <rect key="frame" x="8" y="8" width="359" height="140"/>
+                            <rect key="frame" x="8" y="8" width="359" height="150"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="140" id="cu6-4S-XEH"/>
+                                <constraint firstAttribute="height" constant="150" id="cu6-4S-XEH"/>
                             </constraints>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Select a point in the map to download weather information." textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jak-dz-K9v">
-                            <rect key="frame" x="27" y="27" width="317" height="102"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textColor" red="0.0" green="0.19215686274509802" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS3-ue-MXL">
-                            <rect key="frame" x="27" y="27" width="317" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a point in the Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS3-ue-MXL">
+                            <rect key="frame" x="73" y="33" width="278" height="24"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                             <color key="textColor" red="0.0" green="0.19215686274509802" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 C / 72 F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-O3-EPT">
+                            <rect key="frame" x="73" y="75.5" width="278" height="24"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.19215686269999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drop-pin" translatesAutoresizingMaskIntoConstraints="NO" id="Day-pO-Wkq">
                             <rect key="frame" x="167" y="306" width="40" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="temperature" translatesAutoresizingMaskIntoConstraints="NO" id="6pF-hh-k7c">
-                            <rect key="frame" x="188" y="64" width="50" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temperature" translatesAutoresizingMaskIntoConstraints="NO" id="6pF-hh-k7c">
+                            <rect key="frame" x="31" y="70" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="4GL-Tu-4ki"/>
+                                <constraint firstAttribute="width" constant="35" id="9HV-13-3NW"/>
+                            </constraints>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="umbrella" translatesAutoresizingMaskIntoConstraints="NO" id="anh-xM-DT3">
+                            <rect key="frame" x="31" y="113" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="55H-ZL-unv"/>
+                                <constraint firstAttribute="height" constant="35" id="auu-kw-D9c"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop-pin" translatesAutoresizingMaskIntoConstraints="NO" id="Wk5-c2-J3Z">
+                            <rect key="frame" x="31" y="27" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="hO4-Kh-J4i"/>
+                                <constraint firstAttribute="height" constant="35" id="zC0-ii-RY9"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqt-g9-ycb">
+                            <rect key="frame" x="73" y="118.5" width="278" height="24"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.19215686269999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="6pF-hh-k7c" firstAttribute="top" secondItem="Wk5-c2-J3Z" secondAttribute="bottom" constant="8" id="0As-Wd-uLY"/>
+                        <constraint firstItem="Wk5-c2-J3Z" firstAttribute="leading" secondItem="Idu-Db-ZBo" secondAttribute="leading" constant="23" id="33n-S5-bWB"/>
+                        <constraint firstItem="Lqt-g9-ycb" firstAttribute="leading" secondItem="XqZ-O3-EPT" secondAttribute="leading" id="6RO-Eu-VX8"/>
                         <constraint firstItem="fmL-NI-hbt" firstAttribute="leading" secondItem="eZU-iN-pm3" secondAttribute="leading" id="6cw-En-HeZ"/>
+                        <constraint firstItem="6pF-hh-k7c" firstAttribute="centerX" secondItem="Wk5-c2-J3Z" secondAttribute="centerX" id="8Cg-rJ-hDT"/>
                         <constraint firstAttribute="trailing" secondItem="fmL-NI-hbt" secondAttribute="trailing" id="BF4-JT-7lz"/>
                         <constraint firstItem="fmL-NI-hbt" firstAttribute="top" secondItem="eZU-iN-pm3" secondAttribute="top" id="Eod-iz-5cb"/>
+                        <constraint firstItem="XqZ-O3-EPT" firstAttribute="centerY" secondItem="6pF-hh-k7c" secondAttribute="centerY" id="G2l-0Z-p49"/>
+                        <constraint firstItem="BS3-ue-MXL" firstAttribute="trailing" secondItem="Idu-Db-ZBo" secondAttribute="trailing" constant="-16" id="Jbw-lc-2jc"/>
+                        <constraint firstItem="XqZ-O3-EPT" firstAttribute="width" secondItem="BS3-ue-MXL" secondAttribute="width" id="UNZ-tJ-tA4"/>
                         <constraint firstItem="Idu-Db-ZBo" firstAttribute="leading" secondItem="eZU-iN-pm3" secondAttribute="leading" constant="8" id="UqK-dT-10z"/>
+                        <constraint firstItem="Lqt-g9-ycb" firstAttribute="width" secondItem="XqZ-O3-EPT" secondAttribute="width" id="WqU-8I-sD8"/>
+                        <constraint firstItem="Lqt-g9-ycb" firstAttribute="centerY" secondItem="anh-xM-DT3" secondAttribute="centerY" id="gJZ-gj-Dlt"/>
+                        <constraint firstItem="XqZ-O3-EPT" firstAttribute="leading" secondItem="BS3-ue-MXL" secondAttribute="leading" id="gZo-WH-1q8"/>
                         <constraint firstAttribute="bottom" secondItem="fmL-NI-hbt" secondAttribute="bottom" id="gsm-MR-dUe"/>
+                        <constraint firstItem="BS3-ue-MXL" firstAttribute="centerY" secondItem="Wk5-c2-J3Z" secondAttribute="centerY" id="jgd-wH-xzU"/>
+                        <constraint firstItem="Wk5-c2-J3Z" firstAttribute="top" secondItem="Idu-Db-ZBo" secondAttribute="top" constant="19" id="pVK-JM-olJ"/>
+                        <constraint firstItem="anh-xM-DT3" firstAttribute="centerX" secondItem="Wk5-c2-J3Z" secondAttribute="centerX" id="ppz-3R-Fbz"/>
+                        <constraint firstItem="anh-xM-DT3" firstAttribute="top" secondItem="6pF-hh-k7c" secondAttribute="bottom" constant="8" id="seV-Eo-tAP"/>
                         <constraint firstItem="Idu-Db-ZBo" firstAttribute="top" secondItem="eZU-iN-pm3" secondAttribute="top" constant="8" id="tAi-t1-gEj"/>
+                        <constraint firstItem="BS3-ue-MXL" firstAttribute="leading" secondItem="Wk5-c2-J3Z" secondAttribute="trailing" constant="7" id="tR7-dE-Qil"/>
                         <constraint firstAttribute="trailing" secondItem="Idu-Db-ZBo" secondAttribute="trailing" constant="8" id="xWc-sY-9CX"/>
                     </constraints>
                 </view>
@@ -92,5 +128,6 @@
         <image name="cuadrado-mensaje" width="31" height="31"/>
         <image name="drop-pin" width="35" height="35"/>
         <image name="temperature" width="30" height="30"/>
+        <image name="umbrella" width="30" height="30"/>
     </resources>
 </document>

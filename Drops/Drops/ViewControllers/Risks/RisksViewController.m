@@ -8,7 +8,7 @@
 
 #import "UIColor+Drops.h"
 #import "UIHelper.h"
-
+#import "ClimateDownloader.h"
 
 @interface RisksViewController () <MKMapViewDelegate>
 
@@ -45,7 +45,7 @@
     
     self.map.delegate = self;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"doc" ofType:@"kml"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"economico" ofType:@"kml"];
     NSURL *url = [NSURL fileURLWithPath:path];
     if ( url != nil )
     {
@@ -183,13 +183,38 @@
     }
 }
 
-- (void)foundRisk:(NSString *)riskStr
+- (double)calculateRiskForProbability:(double)precipProbability intensity:(double)precipIntensity staticRisk:(double)staticRisk
 {
-    NSInteger index = [riskStr integerValue];
+    double normalizacionMilimetros = precipIntensity / 130.0;
+    double normalizacionInundabilidad = staticRisk / 10.0;
+    //double result = normalizacionInundabilidad + (0.2 * (precipIntensity * normalizacionMilimetros));
+    double result = (normalizacionInundabilidad * 0.6 ) + (0.4 * (precipIntensity * normalizacionMilimetros));
+    
+    return MAX(0.0, MIN(1.0, result));
+}
+
+- (void)processWeatherData:(NSDictionary *)weather riskString:(NSString *)riskStr
+{
+    double staticRisk = [riskStr floatValue];
+    NSDictionary *daily = weather[@"daily"];
+    NSArray *data = daily[@"data"];
+    
+    double maxRisk = 0.0;
+    
+    for ( NSDictionary *dailyData in data )
+    {
+        double precipProbability = [dailyData[@"precipProbability"] doubleValue];
+        double precipIntensity = [dailyData[@"precipIntensity"] doubleValue];
+        
+        double calculatedRisk = [self calculateRiskForProbability:precipProbability intensity:precipIntensity staticRisk:staticRisk];
+        maxRisk = MAX(maxRisk,  calculatedRisk);
+    }
+    
+    double risk = maxRisk * 10.0;
+    
+    NSInteger index = (NSInteger) risk;
     UIColor *color = self.riskColors[index];
     self.peg.tintColor = color;
-    
-    float risk = [riskStr floatValue];
     
     self.pegToBottom.constant = - ((risk / 10.0) * self.view.frame.size.height);
     self.peg.hidden = NO;
@@ -201,6 +226,22 @@
     self.warningImageView.image = [UIImage imageNamed:@"compartir-1"];
     
     [self.view layoutIfNeeded];
+}
+
+- (void)foundRisk:(NSString *)riskStr
+{
+    CLLocationDegrees latitude = self.map.centerCoordinate.latitude;
+    CLLocationDegrees longitude = self.map.centerCoordinate.longitude;
+    
+    [[ClimateDownloader instance] downloadLatitude:latitude
+                                         longitude:longitude
+                                          callback:^(NSDictionary *information, NSError *error)
+     {
+         if ( error == nil )
+         {
+             [self processWeatherData:information riskString:riskStr];
+         }
+     }];
 }
 
 - (void)shareThis
