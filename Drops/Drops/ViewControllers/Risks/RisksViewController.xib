@@ -8,10 +8,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClimateViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RisksViewController">
             <connections>
                 <outlet property="map" destination="fmL-NI-hbt" id="yTa-qw-eK9"/>
+                <outlet property="mapTypeSegmentedControl" destination="M5T-a7-NAa" id="5p6-YV-Ltb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,6 +29,60 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmL-NI-hbt">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xf5-KL-0uE">
+                    <rect key="frame" x="0.0" y="0.0" width="70" height="667"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="0.5" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="hjC-mg-PkN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cR-3Q-34v">
+                    <rect key="frame" x="67" y="16" width="300" height="128"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cuadrado-mensaje" translatesAutoresizingMaskIntoConstraints="NO" id="wII-zg-0Oa">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-menu-icon" translatesAutoresizingMaskIntoConstraints="NO" id="JV7-wx-O5E">
+                            <rect key="frame" x="20" y="20" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="m8O-mt-wJn"/>
+                                <constraint firstAttribute="height" constant="50" id="sKB-a8-bjw"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select map type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRL-hR-Z6S">
+                            <rect key="frame" x="78" y="33" width="214" height="24"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.19215686274509802" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M5T-a7-NAa">
+                            <rect key="frame" x="48" y="76" width="204" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="204" id="iab-8F-vJx"/>
+                            </constraints>
+                            <segments>
+                                <segment title="Standard"/>
+                                <segment title="Satellite"/>
+                                <segment title="Hybrid"/>
+                            </segments>
+                            <color key="tintColor" red="0.0" green="0.61176470589999998" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="mapTypeChanged:" destination="-1" eventType="valueChanged" id="6U3-a9-w5q"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="JV7-wx-O5E" firstAttribute="top" secondItem="4cR-3Q-34v" secondAttribute="top" constant="20" id="F9y-Sc-ygy"/>
+                        <constraint firstItem="JRL-hR-Z6S" firstAttribute="leading" secondItem="JV7-wx-O5E" secondAttribute="trailing" constant="8" id="Gia-I5-sFE"/>
+                        <constraint firstAttribute="trailing" secondItem="JRL-hR-Z6S" secondAttribute="trailing" constant="8" id="P7i-er-g98"/>
+                        <constraint firstItem="JRL-hR-Z6S" firstAttribute="centerY" secondItem="JV7-wx-O5E" secondAttribute="centerY" id="WuL-uE-Dv0"/>
+                        <constraint firstItem="JV7-wx-O5E" firstAttribute="leading" secondItem="4cR-3Q-34v" secondAttribute="leading" constant="20" id="XfP-el-Sd2"/>
+                        <constraint firstItem="M5T-a7-NAa" firstAttribute="centerX" secondItem="4cR-3Q-34v" secondAttribute="centerX" id="ccD-id-mY1"/>
+                        <constraint firstAttribute="height" constant="128" id="mQr-Bp-cET"/>
+                        <constraint firstAttribute="bottom" secondItem="M5T-a7-NAa" secondAttribute="bottom" constant="24" id="skn-Ry-42W"/>
+                    </constraints>
+                </view>
                 <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8r3-t7-lzY">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.078431372549019607" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,20 +94,35 @@
                         <constraint firstAttribute="width" constant="35" id="Y1e-3E-hKD"/>
                     </constraints>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="escala-riesgo" translatesAutoresizingMaskIntoConstraints="NO" id="uHu-Ng-gC7">
+                    <rect key="frame" x="16" y="8" width="34" height="651"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="oqQ-qy-2YG"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8r3-t7-lzY" secondAttribute="trailing" id="16F-dj-ntk"/>
                 <constraint firstItem="fmL-NI-hbt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="81R-Uj-8i2"/>
+                <constraint firstItem="uHu-Ng-gC7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="EBm-gG-5le"/>
+                <constraint firstItem="Xf5-KL-0uE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fjb-XK-Zad"/>
+                <constraint firstItem="4cR-3Q-34v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="ICG-40-zDz"/>
                 <constraint firstItem="8r3-t7-lzY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KoM-hj-nAF"/>
                 <constraint firstAttribute="bottom" secondItem="fmL-NI-hbt" secondAttribute="bottom" id="Lra-pA-Tez"/>
                 <constraint firstAttribute="trailing" secondItem="fmL-NI-hbt" secondAttribute="trailing" id="M2f-B4-UC8"/>
+                <constraint firstAttribute="bottom" secondItem="Xf5-KL-0uE" secondAttribute="bottom" id="Oab-z9-diy"/>
                 <constraint firstItem="8r3-t7-lzY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="QMt-MQ-PZq"/>
+                <constraint firstItem="uHu-Ng-gC7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="TCr-CH-1bS"/>
                 <constraint firstItem="S43-eK-hhh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TiU-pm-nPZ"/>
+                <constraint firstAttribute="bottom" secondItem="uHu-Ng-gC7" secondAttribute="bottom" constant="8" id="U5k-GF-U77"/>
+                <constraint firstItem="Xf5-KL-0uE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VPq-kI-74q"/>
                 <constraint firstItem="S43-eK-hhh" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-17.5" id="c3E-39-Dqh"/>
+                <constraint firstAttribute="trailing" secondItem="4cR-3Q-34v" secondAttribute="trailing" constant="8" id="ica-DK-5xL"/>
                 <constraint firstItem="fmL-NI-hbt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ndb-02-bEH"/>
                 <constraint firstAttribute="bottom" secondItem="8r3-t7-lzY" secondAttribute="bottom" id="u1a-nB-NmC"/>
+                <constraint firstItem="4cR-3Q-34v" firstAttribute="leading" secondItem="uHu-Ng-gC7" secondAttribute="trailing" constant="17" id="ydo-ja-o89"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -55,6 +130,9 @@
         </view>
     </objects>
     <resources>
+        <image name="cuadrado-mensaje" width="31" height="31"/>
         <image name="drop-pin" width="35" height="35"/>
+        <image name="escala-riesgo" width="27" height="554"/>
+        <image name="map-menu-icon" width="40" height="40"/>
     </resources>
 </document>

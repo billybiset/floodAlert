@@ -13,6 +13,7 @@
 @interface RisksViewController () <MKMapViewDelegate>
 
 @property (nonatomic) NSOperationQueue *processingQueue;
+@property (nonatomic) IBOutlet UISegmentedControl *mapTypeSegmentedControl;
 
 @property (nonatomic) IBOutlet MKMapView *map;
 
@@ -64,6 +65,9 @@
 
 - (void)localizeOutlets
 {
+    [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"STANDARD", ) forSegmentAtIndex:0];
+    [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"SATELLITE", ) forSegmentAtIndex:1];
+    [self.mapTypeSegmentedControl setTitle:NSLocalizedString(@"HYBRID", ) forSegmentAtIndex:2];
 }
 
 - (void)processFile:(NSURL *)fileURL
@@ -156,4 +160,21 @@
         ++index;
     }
 }
+
+- (IBAction)mapTypeChanged:(UISegmentedControl *)segmentedControl
+{
+    switch (segmentedControl.selectedSegmentIndex )
+    {
+        case 0:
+            self.map.mapType = MKMapTypeStandard;
+            break;
+        case 1:
+            self.map.mapType = MKMapTypeSatellite;
+            break;
+        default:
+            self.map.mapType = MKMapTypeHybrid;
+            break;
+    }
+}
+
 @end
