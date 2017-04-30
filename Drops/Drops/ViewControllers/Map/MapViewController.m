@@ -107,7 +107,7 @@
     if ( date == nil )
     {
         //Default is yesterday
-        date = [[NSDate date] dateByAddingTimeInterval:-(24 * 60 * 60 * 1)];
+        date = [[NSDate date] dateByAddingTimeInterval:-(24 * 60 * 60 * 3)];
     }
     
     if ( self.currentDate != date )
